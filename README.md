@@ -8,26 +8,26 @@ If you are are Jackson user you can just use **darksky-forecast-api-jackson** to
 Example usage for base library:
 
 ```java
-        ForecastRequest request = new ForecastRequestBuilder()
-                .key(new APIKey("your-private-key"))
-                .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
+    ForecastRequest request = new ForecastRequestBuilder()
+        .key(new APIKey("your-private-key"))
+        .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
 
-        DarkSkyClient client = new DarkSkyClient();
-        String forecast = client.forecastJsonString(request);
+    DarkSkyClient client = new DarkSkyClient();
+    String forecast = client.forecastJsonString(request);
 
 The response can be returned as byte[], String or InputStream. Useful if you want to proxy the API or only save the result.
 
 Example usage for jackson library:
 
 ```java
-         ForecastRequest request = new ForecastRequestBuilder()
-                .key(new APIKey("your-private-key"))
-                .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
+    ForecastRequest request = new ForecastRequestBuilder()
+        .key(new APIKey("your-private-key"))
+        .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
 
-        DarkSkyJacksonClient client = new DarkSkyJacksonClient();
-        Forecast forecast = client.forecast(request);
-        System.out.println("forecast " + forecast);
-        System.out.println("forecast " + forecast.getCurrently().getTemperature());
+    DarkSkyJacksonClient client = new DarkSkyJacksonClient();
+    Forecast forecast = client.forecast(request);
+    System.out.println("forecast " + forecast);
+    System.out.println("forecast " + forecast.getCurrently().getTemperature());
 
 
 For information about Request and Response format see: [DarkSky documentation](https://darksky.net/dev/docs/forecast).
