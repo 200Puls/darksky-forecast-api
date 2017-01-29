@@ -14,6 +14,7 @@ Example usage for base library:
 
     DarkSkyClient client = new DarkSkyClient();
     String forecast = client.forecastJsonString(request);
+```
 
 The response can be returned as byte[], String or InputStream. Useful if you want to proxy the API or only save the result.
 
@@ -28,6 +29,6 @@ Example usage for jackson library:
     Forecast forecast = client.forecast(request);
     System.out.println("forecast " + forecast);
     System.out.println("forecast " + forecast.getCurrently().getTemperature());
-
+```
 
 For information about Request and Response format see: [DarkSky documentation](https://darksky.net/dev/docs/forecast).
