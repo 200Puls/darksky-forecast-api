@@ -1,13 +1,35 @@
+/*
+ * The MIT License
+ *
+ * Copyright 2017 Philipp-André Plogmann.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 package pap.darksky.forecast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static pap.darkysky.forecast.util.Assert.nonNull;
+import static pap.darksky.forecast.util.Assert.notNull;
+import pap.darksky.forecast.util.InputStreamUtil;
 
 /**
  * Client which provides weather forecast information using DarkSky API.
@@ -27,10 +49,10 @@ public class DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public InputStream forecastJsonStream(ForecastRequest request) throws ForecastException {
-        nonNull("The ForecastRequest cannot be null.", request);
+        notNull("The ForecastRequest cannot be null.", request);
         logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
-        return executeRawForecastRequest(request.getUrl());
+        return executeRawForecastRequest(request);
     }
 
     /**
@@ -42,7 +64,7 @@ public class DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public String forecastJsonString(ForecastRequest request) throws ForecastException {
-        nonNull("The ForecastRequest cannot be null.", request);
+        notNull("The ForecastRequest cannot be null.", request);
 
         return new String(forecastJsonBytes(request));
     }
@@ -56,81 +78,45 @@ public class DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public byte[] forecastJsonBytes(ForecastRequest request) throws ForecastException {
-        nonNull("The ForecastRequest cannot be null.", request);
+        notNull("The ForecastRequest cannot be null.", request);
         logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
         try {
-            try (InputStream is = executeRawForecastRequest(request.getUrl())) {
-                return readFully(is, -1, true);
+            try (InputStream is = executeRawForecastRequest(request)) {
+                return InputStreamUtil.readFully(is);
             }
         } catch (IOException e) {
             throw new ForecastException("Forecast cannot be fetched.", e);
         }
     }
 
-    protected InputStream executeRawForecastRequest(URL forecastUrl) throws ForecastException {
+    protected InputStream executeRawForecastRequest(ForecastRequest request) throws ForecastException {
         HttpURLConnection connection = null;
         try {
-            connection = (HttpURLConnection) forecastUrl.openConnection();
+            connection = (HttpURLConnection) request.getUrl().openConnection();
             connection.setDoOutput(false);
-            connection.setConnectTimeout(6000);
-            connection.setReadTimeout(6000);
+            connection.setConnectTimeout(request.getTimeout());
+            connection.setReadTimeout(request.getTimeout());
             return connection.getInputStream();
         } catch (IOException ex) {
-            logger.log(Level.SEVERE, "Error while doing forecast request.", ex);
+            String errorMessage = "Forecast cannot be fetched.";
             if (connection != null && connection.getErrorStream() != null) {
                 try {
                     connection.getErrorStream().close();
                     connection.disconnect();
+                    errorMessage = errorMessage + " Status: " + connection.getResponseCode() + " " + connection.getResponseMessage();
                 } catch (IOException e) {
                     logger.log(Level.SEVERE, "Error closing errorstream.", e);
                 }
             }
-            throw new ForecastException("Forecast cannot be fetched.", ex);
+            throw new ForecastException(errorMessage, ex);
         }
-    }
-
-    /**
-     * TODO: Very performant copy of sun.misc.IOUtils.
-     *
-     * Replace with Java 9 version.
-     */
-    private static byte[] readFully(InputStream is, int length, boolean readAll) throws IOException {
-        byte[] output = {};
-        if (length == -1) {
-            length = Integer.MAX_VALUE;
-        }
-        int pos = 0;
-        while (pos < length) {
-            int bytesToRead;
-            if (pos >= output.length) { // Only expand when there's no room
-                bytesToRead = Math.min(length - pos, output.length + 1024);
-                if (output.length < pos + bytesToRead) {
-                    output = Arrays.copyOf(output, pos + bytesToRead);
-                }
-            } else {
-                bytesToRead = output.length - pos;
-            }
-            int cc = is.read(output, pos, bytesToRead);
-            if (cc < 0) {
-                if (readAll && length != Integer.MAX_VALUE) {
-                    throw new IllegalStateException("Detect premature EOF");
-                } else {
-                    if (output.length != pos) {
-                        output = Arrays.copyOf(output, pos);
-                    }
-                    break;
-                }
-            }
-            pos += cc;
-        }
-        return output;
     }
 
     public static void main(String[] args) throws ForecastException {
         ForecastRequest request = new ForecastRequestBuilder()
                 .key(new APIKey("your-private-key"))
-                .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
+                .location(new GeoCoordinates(new Longitude(-130.377704), new Latitude(89.516275))).build();
 
         DarkSkyClient client = new DarkSkyClient();
         String forecast = client.forecastJsonString(request);
