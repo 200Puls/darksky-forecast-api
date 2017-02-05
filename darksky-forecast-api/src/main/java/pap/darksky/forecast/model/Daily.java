@@ -24,6 +24,7 @@
 package pap.darksky.forecast.model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents the forecast for a whole day.
@@ -78,6 +79,36 @@ public class Daily {
      */
     public void setData(List<DailyDataPoint> data) {
         this.data = data;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.summary);
+        hash = 41 * hash + Objects.hashCode(this.icon);
+        hash = 41 * hash + Objects.hashCode(this.data);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Daily other = (Daily) obj;
+        if (!Objects.equals(this.summary, other.summary)) {
+            return false;
+        }
+        if (!Objects.equals(this.icon, other.icon)) {
+            return false;
+        }
+        return Objects.equals(this.data, other.data);
     }
 
 }

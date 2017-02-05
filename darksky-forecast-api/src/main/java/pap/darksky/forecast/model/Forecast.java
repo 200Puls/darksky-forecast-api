@@ -24,6 +24,7 @@
 package pap.darksky.forecast.model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents the response to a forecast request.
@@ -31,6 +32,15 @@ import java.util.List;
  * A Forecast object actually contains multiple forecasts.
  *
  * For details see: https://darksky.net/dev/docs/response
+ *
+ * A Forecast for a Time Machine request (historical data) is identical in structure to a Forecast Request, except:<br>
+ *
+ * The currently data point will refer to the time provided, rather than the current time. <br>
+ * The minutely data block will be omitted, unless you are requesting a time within an hour of the present.<br>
+ * The hourly data block will contain data points starting at midnight (local time) of the day requested, and continuing until midnight 
+ * (local time) of the following day. <br>
+ * The daily data block will contain a single data point referring to the requested date.<br>
+ * The alerts data block will be omitted.
  *
  * @author Puls
  */
@@ -173,6 +183,60 @@ public class Forecast {
      */
     public void setMinutely(Minutely minutely) {
         this.minutely = minutely;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.flags);
+        hash = 47 * hash + Objects.hashCode(this.alerts);
+        hash = 47 * hash + Objects.hashCode(this.currently);
+        hash = 47 * hash + Objects.hashCode(this.daily);
+        hash = 47 * hash + Objects.hashCode(this.hourly);
+        hash = 47 * hash + Objects.hashCode(this.minutely);
+        hash = 47 * hash + Objects.hashCode(this.timezone);
+        hash = 47 * hash + Objects.hashCode(this.longitude);
+        hash = 47 * hash + Objects.hashCode(this.latitude);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Forecast other = (Forecast) obj;
+        if (!Objects.equals(this.timezone, other.timezone)) {
+            return false;
+        }
+        if (!Objects.equals(this.flags, other.flags)) {
+            return false;
+        }
+        if (!Objects.equals(this.alerts, other.alerts)) {
+            return false;
+        }
+        if (!Objects.equals(this.currently, other.currently)) {
+            return false;
+        }
+        if (!Objects.equals(this.daily, other.daily)) {
+            return false;
+        }
+        if (!Objects.equals(this.hourly, other.hourly)) {
+            return false;
+        }
+        if (!Objects.equals(this.minutely, other.minutely)) {
+            return false;
+        }
+        if (!Objects.equals(this.longitude, other.longitude)) {
+            return false;
+        }
+        return Objects.equals(this.latitude, other.latitude);
     }
 
 }

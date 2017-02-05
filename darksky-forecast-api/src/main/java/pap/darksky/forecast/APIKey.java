@@ -23,6 +23,7 @@
  */
 package pap.darksky.forecast;
 
+import java.util.Objects;
 import static pap.darksky.forecast.util.Assert.notNullOrEmpty;
 
 /**
@@ -50,6 +51,28 @@ public class APIKey {
      */
     public String value() {
         return value;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.value);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final APIKey other = (APIKey) obj;
+        return Objects.equals(this.value, other.value);
     }
 
 }

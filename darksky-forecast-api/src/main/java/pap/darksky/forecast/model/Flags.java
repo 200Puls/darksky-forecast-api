@@ -24,6 +24,7 @@
 package pap.darksky.forecast.model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The flags object contains various metadata information related to the request.
@@ -97,6 +98,40 @@ public class Flags {
      */
     public void setSources(List<String> sources) {
         this.sources = sources;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.units);
+        hash = 71 * hash + (this.darkskyUnavailable ? 1 : 0);
+        hash = 71 * hash + (this.metnoLicense ? 1 : 0);
+        hash = 71 * hash + Objects.hashCode(this.sources);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Flags other = (Flags) obj;
+        if (this.darkskyUnavailable != other.darkskyUnavailable) {
+            return false;
+        }
+        if (this.metnoLicense != other.metnoLicense) {
+            return false;
+        }
+        if (!Objects.equals(this.units, other.units)) {
+            return false;
+        }
+        return Objects.equals(this.sources, other.sources);
     }
 
 }

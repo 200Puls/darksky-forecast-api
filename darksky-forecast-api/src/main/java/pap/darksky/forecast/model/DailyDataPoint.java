@@ -24,6 +24,7 @@
 package pap.darksky.forecast.model;
 
 import java.time.Instant;
+import java.util.Objects;
 
 /**
  * DataPoint for the data of a single day.
@@ -449,4 +450,125 @@ public class DailyDataPoint {
         this.apparentTemperatureMaxTime = apparentTemperatureMaxTime;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 73 * hash + Objects.hashCode(this.time);
+        hash = 73 * hash + Objects.hashCode(this.summary);
+        hash = 73 * hash + Objects.hashCode(this.icon);
+        hash = 73 * hash + Objects.hashCode(this.sunriseTime);
+        hash = 73 * hash + Objects.hashCode(this.sunsetTime);
+        hash = 73 * hash + Objects.hashCode(this.moonPhase);
+        hash = 73 * hash + Objects.hashCode(this.precipIntensity);
+        hash = 73 * hash + Objects.hashCode(this.precipIntensityMax);
+        hash = 73 * hash + Objects.hashCode(this.precipProbability);
+        hash = 73 * hash + Objects.hashCode(this.precipType);
+        hash = 73 * hash + Objects.hashCode(this.temperatureMin);
+        hash = 73 * hash + Objects.hashCode(this.temperatureMinTime);
+        hash = 73 * hash + Objects.hashCode(this.temperatureMax);
+        hash = 73 * hash + Objects.hashCode(this.temperatureMaxTime);
+        hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMin);
+        hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMinTime);
+        hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMax);
+        hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMaxTime);
+        hash = 73 * hash + Objects.hashCode(this.dewPoint);
+        hash = 73 * hash + Objects.hashCode(this.humidity);
+        hash = 73 * hash + Objects.hashCode(this.windSpeed);
+        hash = 73 * hash + Objects.hashCode(this.windBearing);
+        hash = 73 * hash + Objects.hashCode(this.visibility);
+        hash = 73 * hash + Objects.hashCode(this.cloudCover);
+        hash = 73 * hash + Objects.hashCode(this.pressure);
+        hash = 73 * hash + Objects.hashCode(this.ozone);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DailyDataPoint other = (DailyDataPoint) obj;
+        if (!Objects.equals(this.summary, other.summary)) {
+            return false;
+        }
+        if (!Objects.equals(this.icon, other.icon)) {
+            return false;
+        }
+        if (!Objects.equals(this.precipType, other.precipType)) {
+            return false;
+        }
+        if (!Objects.equals(this.time, other.time)) {
+            return false;
+        }
+        if (!Objects.equals(this.sunriseTime, other.sunriseTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.sunsetTime, other.sunsetTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.moonPhase, other.moonPhase)) {
+            return false;
+        }
+        if (!Objects.equals(this.precipIntensity, other.precipIntensity)) {
+            return false;
+        }
+        if (!Objects.equals(this.precipIntensityMax, other.precipIntensityMax)) {
+            return false;
+        }
+        if (!Objects.equals(this.precipProbability, other.precipProbability)) {
+            return false;
+        }
+        if (!Objects.equals(this.temperatureMin, other.temperatureMin)) {
+            return false;
+        }
+        if (!Objects.equals(this.temperatureMinTime, other.temperatureMinTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.temperatureMax, other.temperatureMax)) {
+            return false;
+        }
+        if (!Objects.equals(this.temperatureMaxTime, other.temperatureMaxTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.apparentTemperatureMin, other.apparentTemperatureMin)) {
+            return false;
+        }
+        if (!Objects.equals(this.apparentTemperatureMinTime, other.apparentTemperatureMinTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.apparentTemperatureMax, other.apparentTemperatureMax)) {
+            return false;
+        }
+        if (!Objects.equals(this.apparentTemperatureMaxTime, other.apparentTemperatureMaxTime)) {
+            return false;
+        }
+        if (!Objects.equals(this.dewPoint, other.dewPoint)) {
+            return false;
+        }
+        if (!Objects.equals(this.humidity, other.humidity)) {
+            return false;
+        }
+        if (!Objects.equals(this.windSpeed, other.windSpeed)) {
+            return false;
+        }
+        if (!Objects.equals(this.windBearing, other.windBearing)) {
+            return false;
+        }
+        if (!Objects.equals(this.visibility, other.visibility)) {
+            return false;
+        }
+        if (!Objects.equals(this.cloudCover, other.cloudCover)) {
+            return false;
+        }
+        if (!Objects.equals(this.pressure, other.pressure)) {
+            return false;
+        }
+        return Objects.equals(this.ozone, other.ozone);
+    }
 }

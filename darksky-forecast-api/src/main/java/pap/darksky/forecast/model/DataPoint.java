@@ -24,10 +24,11 @@
 package pap.darksky.forecast.model;
 
 import java.time.Instant;
+import java.util.Objects;
 
 /**
  * DataPint containing the weather information.
- * 
+ *
  * A data point object contains various properties, each representing the average (unless otherwise specified) of a particular
  * weather phenomenon occurring during a period of time: an instant in the case of currently, a minute for minutely, an hour for
  * hourly, and a day for daily.
@@ -297,6 +298,88 @@ public class DataPoint {
      */
     public void setVisibility(Double visibility) {
         this.visibility = visibility;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.time);
+        hash = 37 * hash + Objects.hashCode(this.summary);
+        hash = 37 * hash + Objects.hashCode(this.icon);
+        hash = 37 * hash + Objects.hashCode(this.precipIntensity);
+        hash = 37 * hash + Objects.hashCode(this.precipProbability);
+        hash = 37 * hash + Objects.hashCode(this.precipType);
+        hash = 37 * hash + Objects.hashCode(this.temperature);
+        hash = 37 * hash + Objects.hashCode(this.apparentTemperature);
+        hash = 37 * hash + Objects.hashCode(this.dewPoint);
+        hash = 37 * hash + Objects.hashCode(this.humidity);
+        hash = 37 * hash + Objects.hashCode(this.windSpeed);
+        hash = 37 * hash + Objects.hashCode(this.windBearing);
+        hash = 37 * hash + Objects.hashCode(this.pressure);
+        hash = 37 * hash + Objects.hashCode(this.cloudCover);
+        hash = 37 * hash + Objects.hashCode(this.ozone);
+        hash = 37 * hash + Objects.hashCode(this.visibility);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DataPoint other = (DataPoint) obj;
+        if (!Objects.equals(this.summary, other.summary)) {
+            return false;
+        }
+        if (!Objects.equals(this.icon, other.icon)) {
+            return false;
+        }
+        if (!Objects.equals(this.precipType, other.precipType)) {
+            return false;
+        }
+        if (!Objects.equals(this.time, other.time)) {
+            return false;
+        }
+        if (!Objects.equals(this.precipIntensity, other.precipIntensity)) {
+            return false;
+        }
+        if (!Objects.equals(this.precipProbability, other.precipProbability)) {
+            return false;
+        }
+        if (!Objects.equals(this.temperature, other.temperature)) {
+            return false;
+        }
+        if (!Objects.equals(this.apparentTemperature, other.apparentTemperature)) {
+            return false;
+        }
+        if (!Objects.equals(this.dewPoint, other.dewPoint)) {
+            return false;
+        }
+        if (!Objects.equals(this.humidity, other.humidity)) {
+            return false;
+        }
+        if (!Objects.equals(this.windSpeed, other.windSpeed)) {
+            return false;
+        }
+        if (!Objects.equals(this.windBearing, other.windBearing)) {
+            return false;
+        }
+        if (!Objects.equals(this.pressure, other.pressure)) {
+            return false;
+        }
+        if (!Objects.equals(this.cloudCover, other.cloudCover)) {
+            return false;
+        }
+        if (!Objects.equals(this.ozone, other.ozone)) {
+            return false;
+        }
+        return Objects.equals(this.visibility, other.visibility);
     }
 
 }

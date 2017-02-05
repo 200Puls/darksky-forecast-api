@@ -25,6 +25,7 @@ package pap.darksky.forecast;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Instant;
 import static pap.darksky.forecast.util.Assert.notNull;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,7 +39,7 @@ import java.util.StringJoiner;
  */
 public class ForecastRequestBuilder {
 
-    private static final String URL = " https://api.darksky.net/forecast/##key##/##latitude##,##longitude##";
+    private static final String URL = " https://api.darksky.net/forecast/##key##/##latitude##,##longitude####time##";
     private final List<Block> exclusion = new ArrayList<>();
     private Language language = Language.de;
     private Units units = Units.si;
@@ -46,6 +47,7 @@ public class ForecastRequestBuilder {
     private boolean extendHourly;
     private GeoCoordinates geoCoordinates;
     private APIKey apiKey;
+    private Instant time;
 
     /**
      * @param apiKey Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript
@@ -130,6 +132,17 @@ public class ForecastRequestBuilder {
     }
 
     /**
+     * @param time The Time for which the historical weather data is returned.
+     * @return This for fluent API.
+     */
+    public ForecastRequestBuilder time(Instant time) {
+        notNull("time cannot be null.", time);
+
+        this.time = time;
+        return this;
+    }
+
+    /**
      * @return The Request with the given parameters set.
      */
     public ForecastRequest build() {
@@ -152,9 +165,16 @@ public class ForecastRequestBuilder {
         if (overrideUrl != null) {
             forecastUrlString = overrideUrl;
         }
+
+        String unixTimestamp = "";
+        if (time != null) {
+            unixTimestamp = "," + String.valueOf(time.getEpochSecond());
+        }
+
         forecastUrlString = forecastUrlString.replaceAll("##key##", apiKey.value())
                 .replaceAll("##latitude##", String.valueOf(geoCoordinates.latitude().value()))
                 .replaceAll("##longitude##", String.valueOf(geoCoordinates.longitude().value()))
+                .replaceAll("##time##", unixTimestamp)
                 + requuestParamtersAsString();
 
         return new URL(forecastUrlString);

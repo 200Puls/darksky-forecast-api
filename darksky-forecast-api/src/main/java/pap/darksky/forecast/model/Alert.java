@@ -25,6 +25,7 @@ package pap.darksky.forecast.model;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents the severe weather warnings issued for the requested location by a governmental authority (please see our data
@@ -140,6 +141,52 @@ public class Alert {
      */
     public void setSeverity(Severity severity) {
         this.severity = severity;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.title);
+        hash = 61 * hash + Objects.hashCode(this.description);
+        hash = 61 * hash + Objects.hashCode(this.time);
+        hash = 61 * hash + Objects.hashCode(this.expires);
+        hash = 61 * hash + Objects.hashCode(this.regions);
+        hash = 61 * hash + Objects.hashCode(this.severity);
+        hash = 61 * hash + Objects.hashCode(this.uri);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Alert other = (Alert) obj;
+        if (!Objects.equals(this.title, other.title)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.uri, other.uri)) {
+            return false;
+        }
+        if (!Objects.equals(this.time, other.time)) {
+            return false;
+        }
+        if (!Objects.equals(this.expires, other.expires)) {
+            return false;
+        }
+        if (!Objects.equals(this.regions, other.regions)) {
+            return false;
+        }
+        return this.severity == other.severity;
     }
 
     public enum Severity {

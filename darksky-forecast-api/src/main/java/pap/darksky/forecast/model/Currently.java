@@ -23,6 +23,8 @@
  */
 package pap.darksky.forecast.model;
 
+import java.util.Objects;
+
 /**
  * A data point containing the current weather conditions at the requested location.
  *
@@ -63,6 +65,35 @@ public class Currently extends DataPoint {
      */
     public void setNearestStormDistance(Double nearestStormDistance) {
         this.nearestStormDistance = nearestStormDistance;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.nearestStormBearing);
+        hash = 67 * hash + Objects.hashCode(this.nearestStormDistance);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Currently other = (Currently) obj;
+        if (!Objects.equals(this.nearestStormBearing, other.nearestStormBearing)) {
+            return false;
+        }
+        if (!Objects.equals(this.nearestStormDistance, other.nearestStormDistance)) {
+            return false;
+        }
+        return super.equals(obj);
     }
 
 }

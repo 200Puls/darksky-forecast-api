@@ -23,6 +23,7 @@
  */
 package pap.darksky.forecast;
 
+import java.util.Objects;
 import static pap.darksky.forecast.util.Assert.notNull;
 
 /**
@@ -60,4 +61,31 @@ public class GeoCoordinates {
     public Latitude latitude() {
         return latitude;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.longitude);
+        hash = 89 * hash + Objects.hashCode(this.latitude);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GeoCoordinates other = (GeoCoordinates) obj;
+        if (!Objects.equals(this.longitude, other.longitude)) {
+            return false;
+        }
+        return Objects.equals(this.latitude, other.latitude);
+    }
+
 }

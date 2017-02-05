@@ -26,6 +26,8 @@ package pap.darksky.forecast;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static pap.darksky.forecast.util.Assert.notNull;
@@ -114,7 +116,9 @@ public class DarkSkyClient {
 
     public static void main(String[] args) throws ForecastException {
         ForecastRequest request = new ForecastRequestBuilder()
-                .key(new APIKey("your-private-key"))
+//                .key(new APIKey("your-private-key"))
+                 .key(new APIKey("afdf3df9ed83a112a69cb6beb82f80c8"))
+//                .time(  Instant.now().minus(5000, ChronoUnit.DAYS))
                 .location(new GeoCoordinates(new Longitude(-130.377704), new Latitude(89.516275))).build();
 
         DarkSkyClient client = new DarkSkyClient();

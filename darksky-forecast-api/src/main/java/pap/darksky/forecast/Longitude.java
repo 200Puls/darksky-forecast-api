@@ -23,6 +23,7 @@
  */
 package pap.darksky.forecast;
 
+import java.util.Objects;
 import static pap.darksky.forecast.util.Assert.notNull;
 
 /**
@@ -51,5 +52,27 @@ public class Longitude {
      */
     public Double value() {
         return value;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.value);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Longitude other = (Longitude) obj;
+        return Objects.equals(this.value, other.value);
     }
 }

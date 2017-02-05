@@ -24,6 +24,7 @@
 package pap.darksky.forecast.model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A data block containing the weather conditions minute-by-minute for the next hour.
@@ -80,4 +81,33 @@ public class Minutely {
         this.data = data;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.summary);
+        hash = 97 * hash + Objects.hashCode(this.icon);
+        hash = 97 * hash + Objects.hashCode(this.data);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Minutely other = (Minutely) obj;
+        if (!Objects.equals(this.summary, other.summary)) {
+            return false;
+        }
+        if (!Objects.equals(this.icon, other.icon)) {
+            return false;
+        }
+        return Objects.equals(this.data, other.data);
+    }
 }

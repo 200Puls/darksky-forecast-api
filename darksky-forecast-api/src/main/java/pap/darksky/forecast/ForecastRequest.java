@@ -24,11 +24,12 @@
 package pap.darksky.forecast;
 
 import java.net.URL;
+import java.util.Objects;
 import static pap.darksky.forecast.util.Assert.notNull;
 
 /**
  * Represents a single Request to the DarkSky API.
- * 
+ *
  * Construct the Request object using the builder.
  *
  * @author Puls
@@ -64,6 +65,32 @@ public class ForecastRequest {
     @Override
     public String toString() {
         return "ForecastRequest{" + "url=" + url + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 73 * hash + this.timeout;
+        hash = 73 * hash + Objects.hashCode(this.url);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ForecastRequest other = (ForecastRequest) obj;
+        if (this.timeout != other.timeout) {
+            return false;
+        }
+        return Objects.equals(this.url, other.url);
     }
 
 }

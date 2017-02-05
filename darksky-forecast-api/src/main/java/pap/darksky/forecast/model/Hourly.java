@@ -24,6 +24,7 @@
 package pap.darksky.forecast.model;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A data block containing the weather conditions hour-by-hour for the next two days.
@@ -78,6 +79,36 @@ public class Hourly {
      */
     public void setData(List<DataPoint> data) {
         this.data = data;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.summary);
+        hash = 89 * hash + Objects.hashCode(this.icon);
+        hash = 89 * hash + Objects.hashCode(this.data);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Hourly other = (Hourly) obj;
+        if (!Objects.equals(this.summary, other.summary)) {
+            return false;
+        }
+        if (!Objects.equals(this.icon, other.icon)) {
+            return false;
+        }
+        return Objects.equals(this.data, other.data);
     }
 
 }
