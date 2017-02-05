@@ -26,7 +26,7 @@ package pap.darksky.forecast;
 import static pap.darksky.forecast.util.Assert.notNull;
 
 /**
- * Represents GeoCoordinates which identify one exact place for which a weather forecast is returned..
+ * Represents GeoCoordinates for a location.
  *
  * @author Puls
  */
@@ -35,6 +35,10 @@ public class GeoCoordinates {
     private final Longitude longitude;
     private final Latitude latitude;
 
+    /**
+     * @param longitude The Longitude of the place represented by this GeoCoordinate.
+     * @param latitude The Latitude of the place represented by this GeoCoordinate.
+     */
     public GeoCoordinates(Longitude longitude, Latitude latitude) {
         notNull("The Latitude cannot be null.", latitude);
         notNull("The Longitude cannot be null.", longitude);

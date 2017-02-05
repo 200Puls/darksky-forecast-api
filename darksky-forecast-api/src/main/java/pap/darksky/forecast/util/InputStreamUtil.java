@@ -33,7 +33,7 @@ import static pap.darksky.forecast.util.Assert.notNull;
  *
  * @author Philipp-André Plogmann
  */
-public class InputStreamUtil {
+public final class InputStreamUtil {
 
     private InputStreamUtil() {
         // prevent construction of Utility class.

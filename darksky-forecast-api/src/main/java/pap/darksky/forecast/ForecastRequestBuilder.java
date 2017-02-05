@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.StringJoiner;
 
 /**
- * Can be used to add optional RequestParamters.
+ * Builder to create {@link ForecastRequest} objects.
  *
  * @author Puls
  */
@@ -48,7 +48,8 @@ public class ForecastRequestBuilder {
     private APIKey apiKey;
 
     /**
-     * @param apiKey The APIKey to authenticate with the DarkSky API.
+     * @param apiKey Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript
+     * source code that you transmit to clients.)
      * @return This for fluent API.
      */
     public ForecastRequestBuilder key(APIKey apiKey) {
@@ -59,7 +60,7 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param geoCoordinates Geocordinates identifying the location for which the weather forecast is requested.
+     * @param geoCoordinates The Geo coordinates of a location for which the weather forecast is requested.
      * @return This for fluent API.
      */
     public ForecastRequestBuilder location(GeoCoordinates geoCoordinates) {
@@ -85,7 +86,8 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param language The Language which is used in the Forecast response.
+     * @param language The summary properties are returned in the desired language. (Note that units in the summary will be set
+     * according to the units parameter, so be sure to set both parameters appropriately.)
      * @return This for fluent API.
      */
     public ForecastRequestBuilder language(Language language) {
@@ -117,7 +119,7 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param units The Units which are used in the Forecast response.
+     * @param units Return weather conditions in the requested units.
      * @return This for fluent API.
      */
     public ForecastRequestBuilder units(Units units) {
@@ -196,8 +198,129 @@ public class ForecastRequestBuilder {
      * The available Languages in which the forecast response is translated.
      */
     public enum Language {
+        /**
+         * Arabic
+         */
+        ar,
+        /**
+         * Azerbaijani
+         */
+        az,
+        /**
+         * Belarusian
+         */
+        be,
+        /**
+         * Bosnian
+         */
+        bs,
+        /**
+         * Catalan
+         */
+        ca,
+        /**
+         * Czech
+         */
+        cs,
+        /**
+         * German
+         */
         de,
-        en
+        /**
+         * Greek
+         */
+        el,
+        /**
+         * English (which is the default)
+         */
+        en,
+        /**
+         * Spanish
+         */
+        es,
+        /**
+         * Estonian
+         */
+        et,
+        /**
+         * French
+         */
+        fr,
+        /**
+         * Croatian
+         */
+        hr,
+        /**
+         * Hungarian
+         */
+        hu,
+        /**
+         * Indonesian
+         */
+        id,
+        /**
+         * Italian
+         */
+        it,
+        /**
+         * Icelandic
+         */
+        is,
+        /**
+         * Cornish
+         */
+        kw,
+        /**
+         * Norwegian Bokmål
+         */
+        nb,
+        /**
+         * Dutch
+         */
+        nl,
+        /**
+         * Polish
+         */
+        pl,
+        /**
+         * Portuguese
+         */
+        pt, /**
+         * Russian
+         */
+        ru,
+        /**
+         * Slovak
+         */
+        sk,
+        /**
+         * Slovenian
+         */
+        sl,
+        /**
+         * Serbian
+         */
+        sr,
+        /**
+         * Swedish
+         */
+        sv,
+        /**
+         * Tetum
+         */
+        tet,
+        /**
+         * Turkish
+         */
+        tr,
+        /**
+         * Ukrainian
+         */
+        uk,
+        /**
+         * simplified Chinese
+         */
+        zh,
     }
 
     /**

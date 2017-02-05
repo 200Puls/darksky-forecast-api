@@ -25,33 +25,58 @@ package pap.darksky.forecast.model;
 
 import java.util.List;
 
+/**
+ * A data block containing the weather conditions minute-by-minute for the next hour.
+ *
+ * @author Puls
+ */
 public class Minutely {
 
     private String summary;
     private String icon;
-    private List<WeatherData> data;
+    private List<DataPoint> data;
 
+    /**
+     * @return A human-readable summary of this data block.
+     */
     public String getSummary() {
         return summary;
     }
 
+    /**
+     * @param summary A human-readable summary of this data block.
+     */
     public void setSummary(String summary) {
         this.summary = summary;
     }
 
+    /**
+     * @return A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data
+     * points.)
+     */
     public String getIcon() {
         return icon;
     }
 
+    /**
+     * @param icon A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data
+     * points.)
+     */
     public void setIcon(String icon) {
         this.icon = icon;
     }
 
-    public List<WeatherData> getData() {
+    /**
+     * @return List containing all DataPoints, ordered by time.
+     */
+    public List<DataPoint> getData() {
         return data;
     }
 
-    public void setData(List<WeatherData> data) {
+    /**
+     * @param data List containing all DataPoints, ordered by time.
+     */
+    public void setData(List<DataPoint> data) {
         this.data = data;
     }
 

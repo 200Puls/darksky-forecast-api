@@ -27,7 +27,9 @@ import java.net.URL;
 import static pap.darksky.forecast.util.Assert.notNull;
 
 /**
- * Represents a single Request.
+ * Represents a single Request to the DarkSky API.
+ * 
+ * Construct the Request object using the builder.
  *
  * @author Puls
  */
@@ -53,7 +55,7 @@ public class ForecastRequest {
     }
 
     /**
-     * @return The timeout that shall be used when reading from the DarkSky API.
+     * @return The timeout that is used when connecting and reading from the DarkSky API.
      */
     public int getTimeout() {
         return timeout;

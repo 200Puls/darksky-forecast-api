@@ -32,7 +32,7 @@ import static pap.darksky.forecast.util.Assert.notNull;
 import pap.darksky.forecast.util.InputStreamUtil;
 
 /**
- * Client which provides weather forecast information using DarkSky API.
+ * Client to fetch weather data from the DarkSky API.
  *
  * @author Puls
  */
@@ -52,7 +52,7 @@ public class DarkSkyClient {
         notNull("The ForecastRequest cannot be null.", request);
         logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
-        return executeRawForecastRequest(request);
+        return executeForecastRequest(request);
     }
 
     /**
@@ -81,15 +81,15 @@ public class DarkSkyClient {
         notNull("The ForecastRequest cannot be null.", request);
         logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
-        try (InputStream is = executeRawForecastRequest(request)) {
+        try (InputStream is = executeForecastRequest(request)) {
             return InputStreamUtil.readFully(is);
-            
+
         } catch (IOException e) {
             throw new ForecastException("Forecast cannot be fetched.", e);
         }
     }
 
-    protected InputStream executeRawForecastRequest(ForecastRequest request) throws ForecastException {
+    protected InputStream executeForecastRequest(ForecastRequest request) throws ForecastException {
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) request.getUrl().openConnection();

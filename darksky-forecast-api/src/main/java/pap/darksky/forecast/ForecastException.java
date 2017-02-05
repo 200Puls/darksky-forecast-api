@@ -24,7 +24,7 @@
 package pap.darksky.forecast;
 
 /**
- * Signals that a WeatherForecast cannot be fetched.
+ * Signals an error reading the weather data from DarkSky.
  *
  * @author Puls
  */

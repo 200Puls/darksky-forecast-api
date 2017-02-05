@@ -34,35 +34,49 @@ public class Daily {
 
     private String summary;
     private String icon;
-    private List<DailyWeatherData> data;
+    private List<DailyDataPoint> data;
 
+    /**
+     * @return A human-readable summary of this data block.
+     */
     public String getSummary() {
         return summary;
     }
 
+    /**
+     * @param summary A human-readable summary of this data block.
+     */
     public void setSummary(String summary) {
         this.summary = summary;
     }
 
+    /**
+     * @return A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data
+     * points.)
+     */
     public String getIcon() {
         return icon;
     }
 
+    /**
+     * @param icon A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data
+     * points.)
+     */
     public void setIcon(String icon) {
         this.icon = icon;
     }
 
     /**
-     * @return List containing multiple forecast for whole days.
+     * @return List containing all DataPoints, ordered by time.
      */
-    public List<DailyWeatherData> getData() {
+    public List<DailyDataPoint> getData() {
         return data;
     }
 
     /**
-     * @param data List containing multiple forecast for whole days.
+     * @param data List containing all DataPoints, ordered by time.
      */
-    public void setData(List<DailyWeatherData> data) {
+    public void setData(List<DailyDataPoint> data) {
         this.data = data;
     }
 

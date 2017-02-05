@@ -24,10 +24,45 @@
 package pap.darksky.forecast.model;
 
 /**
- * Represents the current weather.
+ * A data point containing the current weather conditions at the requested location.
  *
  * @author Puls
  */
-public class Currently extends WeatherData {
+public class Currently extends DataPoint {
+
+    private Double nearestStormBearing;
+    private Double nearestStormDistance;
+
+    /**
+     * @return The approximate direction of the nearest storm in degrees, with true north at 0° and progressing clockwise. (If
+     * nearestStormDistance is zero, then this value will not be defined.) optional, only on currently
+     */
+    public Double getNearestStormBearing() {
+        return nearestStormBearing;
+    }
+
+    /**
+     * @param nearestStormBearing The approximate direction of the nearest storm in degrees, with true north at 0° and progressing
+     * clockwise. (If nearestStormDistance is zero, then this value will not be defined.) optional, only on currently
+     */
+    public void setNearestStormBearing(Double nearestStormBearing) {
+        this.nearestStormBearing = nearestStormBearing;
+    }
+
+    /**
+     * @return The approximate distance to the nearest storm in miles. (A storm distance of 0 doesn’t necessarily refer to a storm
+     * at the requested location, but rather a storm in the vicinity of that location.)
+     */
+    public Double getNearestStormDistance() {
+        return nearestStormDistance;
+    }
+
+    /**
+     * @param nearestStormDistance The approximate distance to the nearest storm in miles. (A storm distance of 0 doesn’t
+     * necessarily refer to a storm at the requested location, but rather a storm in the vicinity of that location.)
+     */
+    public void setNearestStormDistance(Double nearestStormDistance) {
+        this.nearestStormDistance = nearestStormDistance;
+    }
 
 }

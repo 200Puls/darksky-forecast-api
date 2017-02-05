@@ -30,7 +30,7 @@ package pap.darksky.forecast.util;
  *
  * @author Puls
  */
-public class Assert {
+public final class Assert {
 
     private Assert() {
         // prevent construction of Utility class.

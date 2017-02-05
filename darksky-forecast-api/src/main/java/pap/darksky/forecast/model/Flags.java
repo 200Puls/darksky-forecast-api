@@ -23,33 +23,80 @@
  */
 package pap.darksky.forecast.model;
 
+import java.util.List;
+
+/**
+ * The flags object contains various metadata information related to the request.
+ *
+ * This properties of this object are optional.
+ *
+ * @author Puls
+ */
 public class Flags {
 
     private String units;
     private boolean darkskyUnavailable;
     private boolean metnoLicense;
+    private List<String> sources;
 
+    /**
+     * @param units Indicates the units which were used for the data in this request.
+     */
     public void setUnits(String units) {
         this.units = units;
     }
 
+    /**
+     * @return Indicates the units which were used for the data in this request.
+     */
     public String getUnits() {
         return units;
     }
 
+    /**
+     * @return The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary
+     * error (such as a radar station being down for maintenance) has made the data unavailable.
+     */
     public boolean isDarkskyUnavailable() {
         return darkskyUnavailable;
     }
 
+    /**
+     * @param darkskyUnavailable The presence of this property indicates that the Dark Sky data source supports the given
+     * location, but a temporary error (such as a radar station being down for maintenance) has made the data unavailable.
+     */
     public void setDarkskyUnavailable(boolean darkskyUnavailable) {
         this.darkskyUnavailable = darkskyUnavailable;
     }
 
+    /**
+     * @return The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request
+     * (as per their license agreement).
+     */
     public boolean isMetnoLicense() {
         return metnoLicense;
     }
 
+    /**
+     * @param metnoLicense The presence of this property indicates that data from api.met.no was utilized in order to facilitate
+     * this request (as per their license agreement).
+     */
     public void setMetnoLicense(boolean metnoLicense) {
         this.metnoLicense = metnoLicense;
     }
+
+    /**
+     * @return This property contains an array of IDs for each data source utilized in servicing this request.
+     */
+    public List<String> getSources() {
+        return sources;
+    }
+
+    /**
+     * @param sources This property contains an array of IDs for each data source utilized in servicing this request.
+     */
+    public void setSources(List<String> sources) {
+        this.sources = sources;
+    }
+
 }

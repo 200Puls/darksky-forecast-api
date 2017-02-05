@@ -26,7 +26,7 @@ package pap.darksky.forecast;
 import static pap.darksky.forecast.util.Assert.notNull;
 
 /**
- * Represents the Latitude of a GeoCordinate of a physical place on earth.
+ * Represents the Latitude of a GeoCordinate of a location.
  *
  * @author Puls
  */
@@ -35,7 +35,7 @@ public class Latitude {
     private final Double value;
 
     /**
-     * @param value The Latitude value.
+     * @param value The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Latitude(Double value) {
         notNull("The Latitude value cannot be null.", value);
@@ -47,7 +47,7 @@ public class Latitude {
     }
 
     /**
-     * @return The Latitude value.
+     * @return The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Double value() {
         return value;

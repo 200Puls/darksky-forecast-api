@@ -25,7 +25,7 @@ package pap.darksky.forecast.model;
 
 import java.time.Instant;
 
-public class WeatherData {
+public class HourlyDataPoint {
 
     private Instant time;
     private String summary;
