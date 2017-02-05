@@ -66,10 +66,8 @@ public class DarkSkyJacksonClient extends DarkSkyClient {
 
         logger.log(Level.INFO, "Executing Forecat request: {0}", request);
 
-        try {
-            try (InputStream is = executeRawForecastRequest(request.getUrl())) {
-                return mapper.readValue(is, Forecast.class);
-            }
+        try (InputStream is = executeRawForecastRequest(request.getUrl())) {
+            return mapper.readValue(is, Forecast.class);
 
         } catch (IOException e) {
             throw new ForecastException("Forecast cannot be fetched.", e);
