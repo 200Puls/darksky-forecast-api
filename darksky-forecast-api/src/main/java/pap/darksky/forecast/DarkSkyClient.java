@@ -116,9 +116,7 @@ public class DarkSkyClient {
 
     public static void main(String[] args) throws ForecastException {
         ForecastRequest request = new ForecastRequestBuilder()
-//                .key(new APIKey("your-private-key"))
-                 .key(new APIKey("afdf3df9ed83a112a69cb6beb82f80c8"))
-//                .time(  Instant.now().minus(5000, ChronoUnit.DAYS))
+                .key(new APIKey("your-private-key"))
                 .location(new GeoCoordinates(new Longitude(-130.377704), new Latitude(89.516275))).build();
 
         DarkSkyClient client = new DarkSkyClient();
