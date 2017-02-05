@@ -81,10 +81,9 @@ public class DarkSkyClient {
         notNull("The ForecastRequest cannot be null.", request);
         logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
-        try {
-            try (InputStream is = executeRawForecastRequest(request)) {
-                return InputStreamUtil.readFully(is);
-            }
+        try (InputStream is = executeRawForecastRequest(request)) {
+            return InputStreamUtil.readFully(is);
+            
         } catch (IOException e) {
             throw new ForecastException("Forecast cannot be fetched.", e);
         }
