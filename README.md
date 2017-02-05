@@ -19,6 +19,22 @@ Example usage for base library:
 
 The response can be returned as byte[], String or InputStream. Useful if you want to proxy the API or only save the result.
 
+The API also supports time machine requests and modifying requests paramters:
+
+```java
+    ForecastRequest request = new ForecastRequestBuilder()
+        .key(new APIKey("your-private-key"))
+        .time(Instant.now().minus(5, ChronoUnit.DAYS))
+        .language(ForecastRequestBuilder.Language.de)
+        .units(ForecastRequestBuilder.Units.us)
+        .exdclude(ForecastRequestBuilder.Block.minutely)
+        .extendHourly()
+        .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
+
+    DarkSkyClient client = new DarkSkyClient();
+    String forecast = client.forecastJsonString(request);
+```
+
 Example usage for jackson library:
 
 ```java
