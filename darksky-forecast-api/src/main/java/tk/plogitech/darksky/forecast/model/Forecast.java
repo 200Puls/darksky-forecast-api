@@ -27,18 +27,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents the response to a forecast request.
+ * Represents the response to a DarkSky forecast request.
  *
- * A Forecast object actually contains multiple forecasts.
+ * A Forecast object contains multiple data point for weather conditions (currently, hourly, daily, minutely).<br><br>
  *
- * For details see: https://darksky.net/dev/docs/response
+ * For details see: https://darksky.net/dev/docs/response<br><br>
  *
- * A Forecast for a Time Machine request (historical data) is identical in structure to a Forecast Request, except:<br>
+ * A Forecast for a Time Machine request (historical data) is identical in structure to a Forecast Request, except:<br><br>
  *
- * The currently data point will refer to the time provided, rather than the current time. <br>
+ * The currently data point will refer to the time provided, rather than the current time. 
  * The minutely data block will be omitted, unless you are requesting a time within an hour of the present.<br>
- * The hourly data block will contain data points starting at midnight (local time) of the day requested, and continuing until midnight 
- * (local time) of the following day. <br>
+ * The hourly data block will contain data points starting at midnight (local time) of the day requested, and continuing until
+ * midnight (local time) of the following day. <br>
  * The daily data block will contain a single data point referring to the requested date.<br>
  * The alerts data block will be omitted.
  *

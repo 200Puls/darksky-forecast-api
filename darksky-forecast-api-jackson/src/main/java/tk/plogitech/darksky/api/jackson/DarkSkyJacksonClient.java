@@ -44,7 +44,8 @@ import tk.plogitech.darksky.forecast.model.Forecast;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
 /**
- * Service for DarkSky weather forecast API which uses Jackson to parse the response into JavaBean objects.
+ * Client to fetch weather data from the DarkSky API which uses the Jackson library to parse the JSON response into JavaBean
+ * objects.
  *
  * @author Puls
  */
@@ -74,13 +75,13 @@ public class DarkSkyJacksonClient extends DarkSkyClient {
     }
 
     private static ObjectMapper objectMapper() {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
-        mapper.configure(REQUIRE_SETTERS_FOR_GETTERS, false);
-        mapper.configure(AUTO_DETECT_GETTERS, true);
-        mapper.configure(INDENT_OUTPUT, true);
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return mapper;
+        ObjectMapper result = new ObjectMapper();
+        result.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+        result.configure(REQUIRE_SETTERS_FOR_GETTERS, false);
+        result.configure(AUTO_DETECT_GETTERS, true);
+        result.configure(INDENT_OUTPUT, true);
+        result.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        return result;
     }
 
     public static void main(String[] args) throws ForecastException {

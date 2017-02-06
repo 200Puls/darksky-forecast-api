@@ -1,3 +1,4 @@
+tk.plogitech.darksky.api.jackson
 tk.plogitech.darksky.forecast
 tk.plogitech.darksky.forecast.model
 tk.plogitech.darksky.forecast.util

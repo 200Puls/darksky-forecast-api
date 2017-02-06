@@ -79,6 +79,14 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
+                        <configuration>
+                            <!-- switch on dependency-driven aggregation -->
+                            <includeDependencySources>true</includeDependencySources>
+                            <dependencySourceExcludes>
+                                <dependencySourceExclude>com.fasterxml.jackson.core:*</dependencySourceExclude>
+                                <dependencySourceExclude>com.fasterxml.jackson.datatype:*</dependencySourceExclude>
+                            </dependencySourceExcludes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

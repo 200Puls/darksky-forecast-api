@@ -24,7 +24,7 @@
 package tk.plogitech.darksky.forecast.util;
 
 /**
- * Utility for validation parameters.
+ * Utility for validation of parameters.
  *
  * All methods throw an {@link IllegalArgumentException} if the tested assertion fails.
  *
