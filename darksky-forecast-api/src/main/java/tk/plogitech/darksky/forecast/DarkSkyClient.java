@@ -90,6 +90,8 @@ public class DarkSkyClient {
     }
 
     protected InputStream executeForecastRequest(ForecastRequest request) throws ForecastException {
+        notNull("The ForecastRequest cannot be null.", request);
+        
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) request.getUrl().openConnection();
