@@ -21,21 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast.util;
+package tk.plogitech.darksky.forecast.util;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-import static pap.darksky.forecast.util.Assert.notNull;
+import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
 /**
- * Utility for InputStream related tasks.
+ * Utility for IO related tasks.
  *
  * @author Philipp-André Plogmann
  */
-public final class InputStreamUtil {
+public final class IOUtil {
 
-    private InputStreamUtil() {
+    private IOUtil() {
         // prevent construction of Utility class.
     }
 
@@ -44,7 +44,7 @@ public final class InputStreamUtil {
      *
      * @param is The InputStream from which is read.
      * @return The bytes read from the InputStream.
-     * @throws IOException
+     * @throws IOException If the InputStream cannot be read.
      */
     public static byte[] readFully(InputStream is) throws IOException {
         notNull("The InputStream cannot be null", is);

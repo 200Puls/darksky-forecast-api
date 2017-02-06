@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast.model;
+package tk.plogitech.darksky.forecast.model;
 
 import java.time.Instant;
 import java.util.List;

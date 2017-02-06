@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast;
+package tk.plogitech.darksky.forecast;
 
 /**
  * Signals an error reading the weather data from DarkSky.

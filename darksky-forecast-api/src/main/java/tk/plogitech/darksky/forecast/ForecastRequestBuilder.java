@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast;
+package tk.plogitech.darksky.forecast;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Instant;
-import static pap.darksky.forecast.util.Assert.notNull;
+import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

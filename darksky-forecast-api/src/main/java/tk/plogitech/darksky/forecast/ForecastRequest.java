@@ -21,42 +21,57 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast;
+package tk.plogitech.darksky.forecast;
 
+import java.net.URL;
 import java.util.Objects;
-import static pap.darksky.forecast.util.Assert.notNullOrEmpty;
+import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
 /**
- * Represents the authentication Key for DarkSky API.
+ * Represents a single Request to the DarkSky API.
+ *
+ * Construct the Request object using the builder.
  *
  * @author Puls
  */
-public class APIKey {
+public class ForecastRequest {
 
-    private final String value;
+    private final int timeout = 6000;
+    private final URL url;
 
     /**
-     * @param value Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript
-     * source code that you transmit to clients.)
+     * @param url The URL which contains the parameters to request the weather forecast.
      */
-    public APIKey(String value) {
-        notNullOrEmpty("The API-Key cannot be null or empty.", value);
+    ForecastRequest(URL url) {
+        notNull("URL cannot be null.", url);
 
-        this.value = value;
+        this.url = url;
     }
 
     /**
-     * @return Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source
-     * code that you transmit to clients.)
+     * @return The URL which contains the parameters to request the weather forecast.
      */
-    public String value() {
-        return value;
+    public URL getUrl() {
+        return url;
+    }
+
+    /**
+     * @return The timeout that is used when connecting and reading from the DarkSky API.
+     */
+    public int getTimeout() {
+        return timeout;
+    }
+
+    @Override
+    public String toString() {
+        return "ForecastRequest{" + "url=" + url + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.value);
+        int hash = 5;
+        hash = 73 * hash + this.timeout;
+        hash = 73 * hash + Objects.hashCode(this.url);
         return hash;
     }
 
@@ -71,8 +86,11 @@ public class APIKey {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final APIKey other = (APIKey) obj;
-        return Objects.equals(this.value, other.value);
+        final ForecastRequest other = (ForecastRequest) obj;
+        if (this.timeout != other.timeout) {
+            return false;
+        }
+        return Objects.equals(this.url, other.url);
     }
 
 }

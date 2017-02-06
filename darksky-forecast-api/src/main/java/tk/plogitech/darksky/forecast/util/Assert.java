@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast.util;
+package tk.plogitech.darksky.forecast.util;
 
 /**
  * Utility for validation parameters.

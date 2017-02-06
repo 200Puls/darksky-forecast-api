@@ -21,15 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast;
+package tk.plogitech.darksky.forecast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static pap.darksky.forecast.util.Assert.notNull;
-import pap.darksky.forecast.util.InputStreamUtil;
+import static tk.plogitech.darksky.forecast.util.Assert.notNull;
+import tk.plogitech.darksky.forecast.util.IOUtil;
 
 /**
  * Client to fetch weather data from the DarkSky API.
@@ -82,7 +82,7 @@ public class DarkSkyClient {
         logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
         try (InputStream is = executeForecastRequest(request)) {
-            return InputStreamUtil.readFully(is);
+            return IOUtil.readFully(is);
 
         } catch (IOException e) {
             throw new ForecastException("Forecast cannot be fetched.", e);

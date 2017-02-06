@@ -21,34 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast;
+package tk.plogitech.darksky.forecast;
 
 import java.util.Objects;
-import static pap.darksky.forecast.util.Assert.notNull;
+import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
 /**
- * Represents the Longitude of a GeoCordinate of a location.
+ * Represents the Latitude of a GeoCordinate of a location.
  *
  * @author Puls
  */
-public class Longitude {
+public class Latitude {
 
     private final Double value;
 
     /**
-     * @param value The longitude of a location (in decimal degrees). Positive is east, negative is west.
+     * @param value The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
-    public Longitude(Double value) {
-        notNull("The Longitude value cannot be null.", value);
-        if (value < -180 || value > 180) {
-            throw new IllegalArgumentException("Longitude must be between -180 and 180. Latitude value invalid: " + value);
+    public Latitude(Double value) {
+        notNull("The Latitude value cannot be null.", value);
+        if (value < -90 || value > 90) {
+            throw new IllegalArgumentException("Latitude must be between -90 and 90. Latitude value invalid: " + value);
         }
 
         this.value = value;
     }
 
     /**
-     * @return The longitude of a location (in decimal degrees). Positive is east, negative is west.
+     * @return The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Double value() {
         return value;
@@ -56,8 +56,8 @@ public class Longitude {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.value);
+        int hash = 3;
+        hash = 17 * hash + Objects.hashCode(this.value);
         return hash;
     }
 
@@ -72,7 +72,7 @@ public class Longitude {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Longitude other = (Longitude) obj;
+        final Latitude other = (Latitude) obj;
         return Objects.equals(this.value, other.value);
     }
 }

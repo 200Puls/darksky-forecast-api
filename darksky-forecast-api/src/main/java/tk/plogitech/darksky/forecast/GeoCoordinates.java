@@ -21,43 +21,52 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast;
+package tk.plogitech.darksky.forecast;
 
 import java.util.Objects;
-import static pap.darksky.forecast.util.Assert.notNull;
+import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
 /**
- * Represents the Latitude of a GeoCordinate of a location.
+ * Represents GeoCoordinates for a location.
  *
  * @author Puls
  */
-public class Latitude {
+public class GeoCoordinates {
 
-    private final Double value;
+    private final Longitude longitude;
+    private final Latitude latitude;
 
     /**
-     * @param value The latitude of a location (in decimal degrees). Positive is north, negative is south.
+     * @param longitude The Longitude of the place represented by this GeoCoordinate.
+     * @param latitude The Latitude of the place represented by this GeoCoordinate.
      */
-    public Latitude(Double value) {
-        notNull("The Latitude value cannot be null.", value);
-        if (value < -90 || value > 90) {
-            throw new IllegalArgumentException("Latitude must be between -90 and 90. Latitude value invalid: " + value);
-        }
+    public GeoCoordinates(Longitude longitude, Latitude latitude) {
+        notNull("The Latitude cannot be null.", latitude);
+        notNull("The Longitude cannot be null.", longitude);
 
-        this.value = value;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
     /**
-     * @return The latitude of a location (in decimal degrees). Positive is north, negative is south.
+     * @return The Longitude of the place represented by this GeoCoordinate.
      */
-    public Double value() {
-        return value;
+    public Longitude longitude() {
+        return longitude;
+    }
+
+    /**
+     * @return The Latitude of the place represented by this GeoCoordinate.
+     */
+    public Latitude latitude() {
+        return latitude;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.value);
+        int hash = 5;
+        hash = 89 * hash + Objects.hashCode(this.longitude);
+        hash = 89 * hash + Objects.hashCode(this.latitude);
         return hash;
     }
 
@@ -72,7 +81,11 @@ public class Latitude {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Latitude other = (Latitude) obj;
-        return Objects.equals(this.value, other.value);
+        final GeoCoordinates other = (GeoCoordinates) obj;
+        if (!Objects.equals(this.longitude, other.longitude)) {
+            return false;
+        }
+        return Objects.equals(this.latitude, other.latitude);
     }
+
 }

@@ -21,17 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast.model;
+package tk.plogitech.darksky.forecast.model;
 
 import java.util.List;
 import java.util.Objects;
 
 /**
- * A data block containing the weather conditions minute-by-minute for the next hour.
+ * A data block containing the weather conditions hour-by-hour for the next two days.
  *
- * @author Puls
+ * @author Puls.
  */
-public class Minutely {
+public class Hourly {
 
     private String summary;
     private String icon;
@@ -84,9 +84,9 @@ public class Minutely {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.summary);
-        hash = 97 * hash + Objects.hashCode(this.icon);
-        hash = 97 * hash + Objects.hashCode(this.data);
+        hash = 89 * hash + Objects.hashCode(this.summary);
+        hash = 89 * hash + Objects.hashCode(this.icon);
+        hash = 89 * hash + Objects.hashCode(this.data);
         return hash;
     }
 
@@ -101,7 +101,7 @@ public class Minutely {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Minutely other = (Minutely) obj;
+        final Hourly other = (Hourly) obj;
         if (!Objects.equals(this.summary, other.summary)) {
             return false;
         }
@@ -110,4 +110,5 @@ public class Minutely {
         }
         return Objects.equals(this.data, other.data);
     }
+
 }

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package pap.darksky.forecast.model;
+package tk.plogitech.darksky.forecast.model;
 
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +64,7 @@ public class Forecast {
     }
 
     /**
-     * The requested longitude.
+     * @return The requested longitude.
      */
     public Double getLongitude() {
         return longitude;
