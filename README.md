@@ -7,13 +7,13 @@
 * You can pipe the response to the **JSON framework** of choice. For Jackson users there is **darksky-forecast-api-jackson** to get the Forecast parsed as Java beans. This library includes the base library as dependency.
 * Javadoc available: https://200puls.github.io/darksky-forecast-api/
 
-Maven:
+Maven dependency:
 
       <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api</artifactId>
             <version>0.9</version>
-        </dependency>
+     </dependency>
         
 or
 
@@ -21,7 +21,7 @@ or
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api-jckson</artifactId>
             <version>0.9</version>
-        </dependency>
+    </dependency>
 
 Example usage for base library:
 
