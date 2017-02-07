@@ -5,6 +5,7 @@
 * MIT licene so feel free to do what you want with this.
 * The base library **darksky-forecast-api** has no dependencies besides Java 1.8.
 * You can pipe the response to the **JSON framework** of choice. For Jackson users there is **darksky-forecast-api-jackson** to get the Forecast parsed as Java beans. This library includes the base library as dependency.
+* deployed to Maven Central
 * Javadoc available: https://200puls.github.io/darksky-forecast-api/
 
 Example usage for base library:
