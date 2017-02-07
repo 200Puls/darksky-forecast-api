@@ -115,7 +115,7 @@ public class ForecastRequestBuilder {
      * multiple times and the exclusion will add up.
      * @return This for fluent API.
      */
-    public ForecastRequestBuilder exdclude(Block... block) {
+    public ForecastRequestBuilder exclude(Block... block) {
         this.exclusion.addAll(Arrays.asList(block));
         return this;
     }
