@@ -22,14 +22,6 @@ The response can be returned as byte[], String or InputStream. Useful if you wan
 
 The API also supports time machine requests and modifying requests paramters:
 
-The Maven dependency is:
-
-      <dependency>
-            <groupId>tk.plogitech</groupId>
-            <artifactId>darksky-forecast-api</artifactId>
-            <version>0.9</version>
-     </dependency>
-
 ```java
     ForecastRequest request = new ForecastRequestBuilder()
         .key(new APIKey("your-private-key"))
@@ -44,7 +36,15 @@ The Maven dependency is:
     String forecast = client.forecastJsonString(request);
 ```
 
-Example usage for jackson library:
+The Maven dependency is:
+
+      <dependency>
+            <groupId>tk.plogitech</groupId>
+            <artifactId>darksky-forecast-api</artifactId>
+            <version>0.9</version>
+     </dependency>
+
+Example usage for the Jackson library:
 
 ```java
     ForecastRequest request = new ForecastRequestBuilder()
