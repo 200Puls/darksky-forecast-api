@@ -56,7 +56,7 @@ Example usage for the Jackson library:
     System.out.println("forecast " + forecast);
     System.out.println("forecast " + forecast.getCurrently().getTemperature());
 ```      
-The Maven dependency for the Jackson library is. It pulls in the base library automatically.
+The Maven dependency for the Jackson library is:
 
     <dependency>
             <groupId>tk.plogitech</groupId>
@@ -64,4 +64,6 @@ The Maven dependency for the Jackson library is. It pulls in the base library au
             <version>0.9</version>
     </dependency>
 
-For information about Request and Response format see: [DarkSky documentation](https://darksky.net/dev/docs/forecast).
+It pulls in the base library automatically.
+
+For more information about Request and Response format see: [DarkSky documentation](https://darksky.net/dev/docs/forecast).
