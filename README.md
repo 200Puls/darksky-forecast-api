@@ -42,7 +42,7 @@ The Maven dependency is:
       <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api</artifactId>
-            <version>0.9</version>
+            <version>0.10</version>
      </dependency>
 
 Example usage for the Jackson library:
@@ -62,7 +62,7 @@ The Maven dependency for the Jackson library is:
     <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api-jckson</artifactId>
-            <version>0.9</version>
+            <version>0.10</version>
     </dependency>
 
 It pulls in the base library automatically.
