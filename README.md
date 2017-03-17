@@ -61,7 +61,7 @@ The Maven dependency for the Jackson library is:
 
     <dependency>
             <groupId>tk.plogitech</groupId>
-            <artifactId>darksky-forecast-api-jckson</artifactId>
+            <artifactId>darksky-forecast-api-jackson</artifactId>
             <version>0.10</version>
     </dependency>
 
