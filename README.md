@@ -39,11 +39,13 @@ The API also supports time machine requests and modifying requests paramters:
 
 The Maven dependency is:
 
+```xml
       <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api</artifactId>
             <version>0.10</version>
      </dependency>
+```
 
 Example usage for the Jackson library:
 
@@ -59,11 +61,13 @@ Example usage for the Jackson library:
 ```      
 The Maven dependency for the Jackson library is:
 
+```xml
     <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api-jackson</artifactId>
             <version>0.10</version>
     </dependency>
+```
 
 It pulls in the base library automatically.
 
