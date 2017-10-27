@@ -23,6 +23,7 @@
  */
 package tk.plogitech.darksky.forecast.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,7 +32,7 @@ import java.util.Objects;
  *
  * @author Puls.
  */
-public class Hourly {
+public class Hourly implements Serializable {
 
     private String summary;
     private String icon;
