@@ -23,6 +23,7 @@
  */
 package tk.plogitech.darksky.forecast.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,7 +34,7 @@ import java.util.Objects;
  *
  * @author Puls
  */
-public class Flags {
+public class Flags implements Serializable {
 
     private String units;
     private boolean darkskyUnavailable;

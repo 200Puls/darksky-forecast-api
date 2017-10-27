@@ -23,6 +23,7 @@
  */
 package tk.plogitech.darksky.forecast.model;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
@@ -31,7 +32,7 @@ import java.util.Objects;
  *
  * @author Puls
  */
-public class DailyDataPoint {
+public class DailyDataPoint implements Serializable {
 
     private Instant time;
     private String summary;
