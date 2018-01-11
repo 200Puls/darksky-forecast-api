@@ -38,14 +38,13 @@ import tk.plogitech.darksky.forecast.ForecastException;
 import tk.plogitech.darksky.forecast.ForecastRequest;
 import tk.plogitech.darksky.forecast.ForecastRequestBuilder;
 import tk.plogitech.darksky.forecast.GeoCoordinates;
-import tk.plogitech.darksky.forecast.Latitude;
-import tk.plogitech.darksky.forecast.Longitude;
+import tk.plogitech.darksky.forecast.model.Latitude;
+import tk.plogitech.darksky.forecast.model.Longitude;
 import tk.plogitech.darksky.forecast.model.Forecast;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
 /**
- * Client to fetch weather data from the DarkSky API which uses the Jackson library to parse the JSON response into JavaBean
- * objects.
+ * Client to fetch weather data from the DarkSky API which uses the Jackson library to parse the JSON response into JavaBean objects.
  *
  * @author Puls
  */
@@ -63,34 +62,41 @@ public class DarkSkyJacksonClient extends DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public Forecast forecast(ForecastRequest request) throws ForecastException {
-        notNull("The ForecastRequest cannot be null.", request);
-        logger.log(Level.FINE, "Executing Forecat request: {0}", request);
+	notNull("The ForecastRequest cannot be null.", request);
+	logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
-        try (InputStream is = executeForecastRequest(request)) {
-            return mapper.readValue(is, Forecast.class);
+	try (InputStream is = executeForecastRequest(request)) {
+	    return mapper.readValue(is, Forecast.class);
 
-        } catch (IOException e) {
-            throw new ForecastException("Forecast cannot be fetched.", e);
-        }
+	} catch (IOException e) {
+	    throw new ForecastException("Forecast cannot be fetched.", e);
+	}
     }
 
     private static ObjectMapper objectMapper() {
-        ObjectMapper result = new ObjectMapper();
-        result.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
-        result.configure(REQUIRE_SETTERS_FOR_GETTERS, false);
-        result.configure(AUTO_DETECT_GETTERS, true);
-        result.configure(INDENT_OUTPUT, true);
-        result.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return result;
+	ObjectMapper result = new ObjectMapper();
+	result.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());
+	result.configure(REQUIRE_SETTERS_FOR_GETTERS, false);
+	result.configure(AUTO_DETECT_GETTERS, true);
+	result.configure(INDENT_OUTPUT, true);
+	result.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+	return result;
     }
 
     public static void main(String[] args) throws ForecastException {
-        ForecastRequest request = new ForecastRequestBuilder()
-                .key(new APIKey("your-private-key"))
-                .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
+	if (args.length != 3) {
+	    System.out.println("Please provide yout API-Key and a Longitude / Latitrude combination. Usage as follows: '<your-secret-key> <longitude> <latitude>");
+	}
+	String apikey = args[0];
+	String latitude = args[1];
+	String longitude = args[2];
 
-        DarkSkyJacksonClient client = new DarkSkyJacksonClient();
-        Forecast forecast = client.forecast(request);
-        System.out.println("forecast " + forecast);
+	ForecastRequest request = new ForecastRequestBuilder()
+		.key(new APIKey(apikey))
+		.location(new GeoCoordinates(new Longitude(Double.valueOf(latitude)), new Latitude(Double.valueOf(longitude)))).build();
+
+	DarkSkyJacksonClient client = new DarkSkyJacksonClient();
+	Forecast forecast = client.forecast(request);
+	System.out.println("The current weather: " + forecast.getCurrently().getSummary());
     }
 }

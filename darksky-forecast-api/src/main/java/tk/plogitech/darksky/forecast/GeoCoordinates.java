@@ -23,6 +23,8 @@
  */
 package tk.plogitech.darksky.forecast;
 
+import tk.plogitech.darksky.forecast.model.Latitude;
+import tk.plogitech.darksky.forecast.model.Longitude;
 import java.util.Objects;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
