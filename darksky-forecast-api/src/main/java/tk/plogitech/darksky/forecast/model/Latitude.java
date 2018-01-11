@@ -23,6 +23,7 @@
  */
 package tk.plogitech.darksky.forecast.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
@@ -31,7 +32,7 @@ import static tk.plogitech.darksky.forecast.util.Assert.notNull;
  *
  * @author Puls
  */
-public class Latitude {
+public class Latitude implements Serializable {
 
     private final Double value;
 
@@ -39,40 +40,40 @@ public class Latitude {
      * @param value The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Latitude(Double value) {
-        notNull("The Latitude value cannot be null.", value);
-        if (value < -90 || value > 90) {
-            throw new IllegalArgumentException("Latitude must be between -90 and 90. Latitude value invalid: " + value);
-        }
+	notNull("The Latitude value cannot be null.", value);
+	if (value < -90 || value > 90) {
+	    throw new IllegalArgumentException("Latitude must be between -90 and 90. Latitude value invalid: " + value);
+	}
 
-        this.value = value;
+	this.value = value;
     }
 
     /**
      * @return The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Double value() {
-        return value;
+	return value;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.value);
-        return hash;
+	int hash = 3;
+	hash = 17 * hash + Objects.hashCode(this.value);
+	return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Latitude other = (Latitude) obj;
-        return Objects.equals(this.value, other.value);
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	final Latitude other = (Latitude) obj;
+	return Objects.equals(this.value, other.value);
     }
 }
