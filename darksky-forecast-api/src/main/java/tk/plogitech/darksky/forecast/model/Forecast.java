@@ -54,34 +54,34 @@ public class Forecast implements Serializable {
     private Hourly hourly;
     private Minutely minutely;
     private String timezone;
-    private Double longitude;
-    private Double latitude;
+    private Longitude longitude;
+    private Latitude latitude;
 
     /**
      * @param longitude The requested longitude.
      */
-    public void setLongitude(Double longitude) {
+    public void setLongitude(Longitude longitude) {
         this.longitude = longitude;
     }
 
     /**
      * @return The requested longitude.
      */
-    public Double getLongitude() {
+    public Longitude getLongitude() {
         return longitude;
     }
 
     /**
      * @param latitude The requested latitude.
      */
-    public void setLatitude(Double latitude) {
+    public void setLatitude(Latitude latitude) {
         this.latitude = latitude;
     }
 
     /**
      * @return The requested latitude.
      */
-    public Double getLatitude() {
+    public Latitude getLatitude() {
         return latitude;
     }
 
