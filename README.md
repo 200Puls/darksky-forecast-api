@@ -1,12 +1,12 @@
 # darksky-forecast-api
 
 ===================
-* darksky-forecast-api is a Java library to access the [darksky.net](https://darksky.net) weather API.
-* MIT licene so the code is usable without much constraints
+* darksky-forecast-api is a Java library to access the [darksky.net](https://darksky.net) weather API under MIT license
 * The base library **darksky-forecast-api** has no dependencies besides Java 1.8.
 * You can pipe the response to the **JSON framework** of choice. For Jackson users there is **darksky-forecast-api-jackson** to get the Forecast parsed as Java beans. This library includes the base library as dependency.
 * deployed to Maven Central
 * Javadoc available: https://200puls.github.io/darksky-forecast-api/
+* Java 9 module name configured in release version for stable module names. Preview version of full Java 9 support in branch https://github.com/200Puls/darksky-forecast-api/tree/java9
 
 Example usage for base library:
 
