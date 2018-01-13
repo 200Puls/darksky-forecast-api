@@ -36,43 +36,41 @@ public class APIKey {
     private final String value;
 
     /**
-     * @param value Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript
-     * source code that you transmit to clients.)
+     * @param value Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)
      */
     public APIKey(String value) {
-        notNullOrEmpty("The API-Key cannot be null or empty.", value);
+	notNullOrEmpty("The API-Key cannot be null or empty.", value);
 
-        this.value = value;
+	this.value = value;
     }
 
     /**
-     * @return Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source
-     * code that you transmit to clients.)
+     * @return Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)
      */
     public String value() {
-        return value;
+	return value;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.value);
-        return hash;
+	int hash = 7;
+	hash = 67 * hash + Objects.hashCode(this.value);
+	return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final APIKey other = (APIKey) obj;
-        return Objects.equals(this.value, other.value);
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	final APIKey other = (APIKey) obj;
+	return Objects.equals(this.value, other.value);
     }
 
 }

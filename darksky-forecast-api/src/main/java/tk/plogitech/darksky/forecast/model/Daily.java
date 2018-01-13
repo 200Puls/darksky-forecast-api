@@ -42,74 +42,72 @@ public class Daily implements Serializable {
      * @return A human-readable summary of this data block.
      */
     public String getSummary() {
-        return summary;
+	return summary;
     }
 
     /**
      * @param summary A human-readable summary of this data block.
      */
     public void setSummary(String summary) {
-        this.summary = summary;
+	this.summary = summary;
     }
 
     /**
-     * @return A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data
-     * points.)
+     * @return A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data points.)
      */
     public String getIcon() {
-        return icon;
+	return icon;
     }
 
     /**
-     * @param icon A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data
-     * points.)
+     * @param icon A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data points.)
      */
     public void setIcon(String icon) {
-        this.icon = icon;
+	this.icon = icon;
     }
 
     /**
      * @return List containing all DataPoints, ordered by time.
      */
     public List<DailyDataPoint> getData() {
-        return data;
+	return data;
     }
 
     /**
      * @param data List containing all DataPoints, ordered by time.
      */
     public void setData(List<DailyDataPoint> data) {
-        this.data = data;
+	this.data = data;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 41 * hash + Objects.hashCode(this.summary);
-        hash = 41 * hash + Objects.hashCode(this.icon);
-        hash = 41 * hash + Objects.hashCode(this.data);
-        return hash;
+	int hash = 3;
+	hash = 41 * hash + Objects.hashCode(this.summary);
+	hash = 41 * hash + Objects.hashCode(this.icon);
+	hash = 41 * hash + Objects.hashCode(this.data);
+	return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Daily other = (Daily) obj;
-        if (!Objects.equals(this.summary, other.summary)) {
-            return false;
-        }
-        if (!Objects.equals(this.icon, other.icon)) {
-            return false;
-        }
-        return Objects.equals(this.data, other.data);
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	final Daily other = (Daily) obj;
+	if (!Objects.equals(this.summary, other.summary)) {
+	    return false;
+	}
+	if (!Objects.equals(this.icon, other.icon)) {
+	    return false;
+	}
+	return Objects.equals(this.data, other.data);
     }
 
 }

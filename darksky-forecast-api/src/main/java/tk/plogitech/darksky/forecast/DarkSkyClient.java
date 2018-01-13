@@ -51,10 +51,10 @@ public class DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public InputStream forecastJsonStream(ForecastRequest request) throws ForecastException {
-        notNull("The ForecastRequest cannot be null.", request);
-        logger.log(Level.FINE, "Executing Forecat request: {0}", request);
+	notNull("The ForecastRequest cannot be null.", request);
+	logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
-        return executeForecastRequest(request);
+	return executeForecastRequest(request);
     }
 
     /**
@@ -66,9 +66,9 @@ public class DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public String forecastJsonString(ForecastRequest request) throws ForecastException {
-        notNull("The ForecastRequest cannot be null.", request);
+	notNull("The ForecastRequest cannot be null.", request);
 
-        return new String(forecastJsonBytes(request));
+	return new String(forecastJsonBytes(request));
     }
 
     /**
@@ -80,53 +80,53 @@ public class DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public byte[] forecastJsonBytes(ForecastRequest request) throws ForecastException {
-        notNull("The ForecastRequest cannot be null.", request);
-        logger.log(Level.FINE, "Executing Forecat request: {0}", request);
+	notNull("The ForecastRequest cannot be null.", request);
+	logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
-        try (InputStream is = executeForecastRequest(request)) {
-            return IOUtil.readFully(is);
+	try (InputStream is = executeForecastRequest(request)) {
+	    return IOUtil.readFully(is);
 
-        } catch (IOException e) {
-            throw new ForecastException("Forecast cannot be fetched.", e);
-        }
+	} catch (IOException e) {
+	    throw new ForecastException("Forecast cannot be fetched.", e);
+	}
     }
 
     protected InputStream executeForecastRequest(ForecastRequest request) throws ForecastException {
-        notNull("The ForecastRequest cannot be null.", request);
-        
-        HttpURLConnection connection = null;
-        try {
-            connection = (HttpURLConnection) request.getUrl().openConnection();
-            connection.setDoOutput(false);
-            connection.setConnectTimeout(request.getTimeout());
-            connection.setReadTimeout(request.getTimeout());
-            return connection.getInputStream();
-        } catch (IOException ex) {
-            String errorMessage = "Forecast cannot be fetched.";
-            if (connection != null && connection.getErrorStream() != null) {
-                try {
-                    connection.getErrorStream().close();
-                    connection.disconnect();
-                    errorMessage = errorMessage + " Status: " + connection.getResponseCode() + " " + connection.getResponseMessage();
-                } catch (IOException e) {
-                    logger.log(Level.SEVERE, "Error closing errorstream.", e);
-                }
-            }
-            throw new ForecastException(errorMessage, ex);
-        }
+	notNull("The ForecastRequest cannot be null.", request);
+
+	HttpURLConnection connection = null;
+	try {
+	    connection = (HttpURLConnection) request.getUrl().openConnection();
+	    connection.setDoOutput(false);
+	    connection.setConnectTimeout(request.getTimeout());
+	    connection.setReadTimeout(request.getTimeout());
+	    return connection.getInputStream();
+	} catch (IOException ex) {
+	    String errorMessage = "Forecast cannot be fetched.";
+	    if (connection != null && connection.getErrorStream() != null) {
+		try {
+		    connection.getErrorStream().close();
+		    connection.disconnect();
+		    errorMessage = errorMessage + " Status: " + connection.getResponseCode() + " " + connection.getResponseMessage();
+		} catch (IOException e) {
+		    logger.log(Level.SEVERE, "Error closing errorstream.", e);
+		}
+	    }
+	    throw new ForecastException(errorMessage, ex);
+	}
     }
 
     public static void main(String[] args) throws ForecastException {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("Please provide your APIKey as argument");
-        }
-        
-        ForecastRequest request = new ForecastRequestBuilder()
-                .key(new APIKey(args[0]))
-                .location(new GeoCoordinates(new Longitude(-130.377704), new Latitude(89.516275))).build();
+	if (args.length == 0) {
+	    throw new IllegalArgumentException("Please provide your APIKey as argument");
+	}
 
-        DarkSkyClient client = new DarkSkyClient();
-        String forecast = client.forecastJsonString(request);
-        System.out.println("forecast " + forecast);
+	ForecastRequest request = new ForecastRequestBuilder()
+		.key(new APIKey(args[0]))
+		.location(new GeoCoordinates(new Longitude(-130.377704), new Latitude(89.516275))).build();
+
+	DarkSkyClient client = new DarkSkyClient();
+	String forecast = client.forecastJsonString(request);
+	System.out.println("forecast " + forecast);
     }
 }

@@ -36,7 +36,7 @@ import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 public final class IOUtil {
 
     private IOUtil() {
-        // prevent construction of Utility class.
+	// prevent construction of Utility class.
     }
 
     /**
@@ -47,9 +47,9 @@ public final class IOUtil {
      * @throws IOException If the InputStream cannot be read.
      */
     public static byte[] readFully(InputStream is) throws IOException {
-        notNull("The InputStream cannot be null", is);
+	notNull("The InputStream cannot be null", is);
 
-        return readFully(is, -1, true);
+	return readFully(is, -1, true);
     }
 
     /**
@@ -59,38 +59,37 @@ public final class IOUtil {
      *
      * @param is The InputStream from which is read.
      * @param length The max number of bytes read. Use -1 to read everything.
-     * @param readAll Flag to signal that all bytes need to be read. An exception will be thrown if less bytes than the given
-     * length value is read (if length is not -1).
+     * @param readAll Flag to signal that all bytes need to be read. An exception will be thrown if less bytes than the given length value is read (if length is not -1).
      */
     private static byte[] readFully(InputStream is, int length, boolean readAll) throws IOException {
-        byte[] output = {};
-        if (length == -1) {
-            length = Integer.MAX_VALUE;
-        }
-        int pos = 0;
-        while (pos < length) {
-            int bytesToRead;
-            if (pos >= output.length) { // Only expand when there's no room
-                bytesToRead = Math.min(length - pos, output.length + 1024);
-                if (output.length < pos + bytesToRead) {
-                    output = Arrays.copyOf(output, pos + bytesToRead);
-                }
-            } else {
-                bytesToRead = output.length - pos;
-            }
-            int cc = is.read(output, pos, bytesToRead);
-            if (cc < 0) {
-                if (readAll && length != Integer.MAX_VALUE) {
-                    throw new IllegalStateException("Detect premature EOF");
-                } else {
-                    if (output.length != pos) {
-                        output = Arrays.copyOf(output, pos);
-                    }
-                    break;
-                }
-            }
-            pos += cc;
-        }
-        return output;
+	byte[] output = {};
+	if (length == -1) {
+	    length = Integer.MAX_VALUE;
+	}
+	int pos = 0;
+	while (pos < length) {
+	    int bytesToRead;
+	    if (pos >= output.length) { // Only expand when there's no room
+		bytesToRead = Math.min(length - pos, output.length + 1024);
+		if (output.length < pos + bytesToRead) {
+		    output = Arrays.copyOf(output, pos + bytesToRead);
+		}
+	    } else {
+		bytesToRead = output.length - pos;
+	    }
+	    int cc = is.read(output, pos, bytesToRead);
+	    if (cc < 0) {
+		if (readAll && length != Integer.MAX_VALUE) {
+		    throw new IllegalStateException("Detect premature EOF");
+		} else {
+		    if (output.length != pos) {
+			output = Arrays.copyOf(output, pos);
+		    }
+		    break;
+		}
+	    }
+	    pos += cc;
+	}
+	return output;
     }
 }
