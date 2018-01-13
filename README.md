@@ -1,7 +1,7 @@
 # darksky-forecast-api
 
 * darksky-forecast-api is a Java library to access the [darksky.net](https://darksky.net) weather API
-* **No dependencies** for the The base library.
+* **No dependencies** for the the base library
 * You can pipe the response to the **JSON framework** of choice or use it directly as String, Stream or byte[] (e.g. poxying)
 * For Jackson users there is **darksky-forecast-api-jackson** to get the Forecast parsed as Java beans. This library includes the base library as dependency.
 * deployed to Maven Central
