@@ -43,54 +43,54 @@ public class ForecastRequest {
      * @param url The URL which contains the parameters to request the weather forecast.
      */
     ForecastRequest(URL url) {
-        notNull("URL cannot be null.", url);
+	notNull("URL cannot be null.", url);
 
-        this.url = url;
+	this.url = url;
     }
 
     /**
      * @return The URL which contains the parameters to request the weather forecast.
      */
     public URL getUrl() {
-        return url;
+	return url;
     }
 
     /**
      * @return The timeout that is used when connecting and reading from the DarkSky API.
      */
     public int getTimeout() {
-        return timeout;
+	return timeout;
     }
 
     @Override
     public String toString() {
-        return "ForecastRequest{" + "url=" + url + '}';
+	return "ForecastRequest{" + "url=" + url + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 73 * hash + this.timeout;
-        hash = 73 * hash + Objects.hashCode(this.url);
-        return hash;
+	int hash = 5;
+	hash = 73 * hash + this.timeout;
+	hash = 73 * hash + Objects.hashCode(this.url);
+	return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ForecastRequest other = (ForecastRequest) obj;
-        if (this.timeout != other.timeout) {
-            return false;
-        }
-        return Objects.equals(this.url, other.url);
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	final ForecastRequest other = (ForecastRequest) obj;
+	if (this.timeout != other.timeout) {
+	    return false;
+	}
+	return Objects.equals(this.url, other.url);
     }
 
 }

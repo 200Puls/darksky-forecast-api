@@ -31,10 +31,10 @@ package tk.plogitech.darksky.forecast;
 public class ForecastException extends Exception {
 
     public ForecastException(String message) {
-        super(message);
+	super(message);
     }
 
     public ForecastException(String message, Throwable cause) {
-        super(message, cause);
+	super(message, cause);
     }
 }

@@ -45,94 +45,92 @@ public class Flags implements Serializable {
      * @param units Indicates the units which were used for the data in this request.
      */
     public void setUnits(String units) {
-        this.units = units;
+	this.units = units;
     }
 
     /**
      * @return Indicates the units which were used for the data in this request.
      */
     public String getUnits() {
-        return units;
+	return units;
     }
 
     /**
-     * @return The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary
-     * error (such as a radar station being down for maintenance) has made the data unavailable.
+     * @return The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary error (such as a radar station being down for
+     * maintenance) has made the data unavailable.
      */
     public boolean isDarkskyUnavailable() {
-        return darkskyUnavailable;
+	return darkskyUnavailable;
     }
 
     /**
-     * @param darkskyUnavailable The presence of this property indicates that the Dark Sky data source supports the given
-     * location, but a temporary error (such as a radar station being down for maintenance) has made the data unavailable.
+     * @param darkskyUnavailable The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary error (such as a radar station
+     * being down for maintenance) has made the data unavailable.
      */
     public void setDarkskyUnavailable(boolean darkskyUnavailable) {
-        this.darkskyUnavailable = darkskyUnavailable;
+	this.darkskyUnavailable = darkskyUnavailable;
     }
 
     /**
-     * @return The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request
-     * (as per their license agreement).
+     * @return The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per their license agreement).
      */
     public boolean isMetnoLicense() {
-        return metnoLicense;
+	return metnoLicense;
     }
 
     /**
-     * @param metnoLicense The presence of this property indicates that data from api.met.no was utilized in order to facilitate
-     * this request (as per their license agreement).
+     * @param metnoLicense The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per their license agreement).
      */
     public void setMetnoLicense(boolean metnoLicense) {
-        this.metnoLicense = metnoLicense;
+	this.metnoLicense = metnoLicense;
     }
 
     /**
      * @return This property contains an array of IDs for each data source utilized in servicing this request.
      */
     public List<String> getSources() {
-        return sources;
+	return sources;
     }
 
     /**
      * @param sources This property contains an array of IDs for each data source utilized in servicing this request.
      */
     public void setSources(List<String> sources) {
-        this.sources = sources;
+	this.sources = sources;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.units);
-        hash = 71 * hash + (this.darkskyUnavailable ? 1 : 0);
-        hash = 71 * hash + (this.metnoLicense ? 1 : 0);
-        hash = 71 * hash + Objects.hashCode(this.sources);
-        return hash;
+	int hash = 7;
+	hash = 71 * hash + Objects.hashCode(this.units);
+	hash = 71 * hash + (this.darkskyUnavailable ? 1 : 0);
+	hash = 71 * hash + (this.metnoLicense ? 1 : 0);
+	hash = 71 * hash + Objects.hashCode(this.sources);
+	return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Flags other = (Flags) obj;
-        if (this.darkskyUnavailable != other.darkskyUnavailable) {
-            return false;
-        }
-        if (this.metnoLicense != other.metnoLicense) {
-            return false;
-        }
-        if (!Objects.equals(this.units, other.units)) {
-            return false;
-        }
-        return Objects.equals(this.sources, other.sources);
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	final Flags other = (Flags) obj;
+	if (this.darkskyUnavailable != other.darkskyUnavailable) {
+	    return false;
+	}
+	if (this.metnoLicense != other.metnoLicense) {
+	    return false;
+	}
+	if (!Objects.equals(this.units, other.units)) {
+	    return false;
+	}
+	return Objects.equals(this.sources, other.sources);
     }
 
 }
