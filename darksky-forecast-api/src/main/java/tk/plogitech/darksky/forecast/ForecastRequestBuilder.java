@@ -25,6 +25,7 @@ package tk.plogitech.darksky.forecast;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.time.Instant;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 import java.util.ArrayList;
@@ -39,7 +40,8 @@ import java.util.StringJoiner;
  */
 public class ForecastRequestBuilder {
 
-    private static final String URL = " https://api.darksky.net/forecast/##key##/##latitude##,##longitude####time##";
+    private static final Timeouts DEFAULT_TIMEOUTS = new Timeouts(Duration.ofSeconds(6), Duration.ofSeconds(6));
+    private static final String URL = "https://api.darksky.net/forecast/##key##/##latitude##,##longitude####time##";
     private final List<Block> exclusion = new ArrayList<>();
     private Language language = Language.de;
     private Units units = Units.si;
@@ -48,6 +50,7 @@ public class ForecastRequestBuilder {
     private GeoCoordinates geoCoordinates;
     private APIKey apiKey;
     private Instant time;
+    private Timeouts timeouts = DEFAULT_TIMEOUTS;
 
     /**
      * @param apiKey Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)
@@ -139,13 +142,24 @@ public class ForecastRequestBuilder {
     }
 
     /**
+     * @param timeouts Override the default timeouts (6 seconds) for connection to the API and reading from the API.
+     * @return This for fluent API.
+     */
+    public ForecastRequestBuilder timeouts(Timeouts timeouts) {
+	notNull("timeouts cannot be null.", timeouts);
+
+	this.timeouts = timeouts;
+	return this;
+    }
+
+    /**
      * @return The Request with the given parameters set.
      */
     public ForecastRequest build() {
 	try {
-	    return new ForecastRequest(getUrl());
+	    return new ForecastRequest(getUrl(), timeouts);
 	} catch (MalformedURLException ex) {
-	    throw new IllegalArgumentException("Cannot create Forecast Request. The URL is invalid!", ex);
+	    throw new IllegalArgumentException("Cannot create Forecast Request. The provided URL is invalid!", ex);
 	}
     }
 

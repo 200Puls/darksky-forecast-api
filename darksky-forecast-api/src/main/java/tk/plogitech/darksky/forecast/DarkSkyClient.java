@@ -96,10 +96,10 @@ public class DarkSkyClient {
 
 	HttpURLConnection connection = null;
 	try {
-	    connection = (HttpURLConnection) request.getUrl().openConnection();
+	    connection = (HttpURLConnection) request.url().openConnection();
 	    connection.setDoOutput(false);
-	    connection.setConnectTimeout(request.getTimeout());
-	    connection.setReadTimeout(request.getTimeout());
+	    connection.setConnectTimeout((int) request.timeouts().connectionTimeout().toMillis());
+	    connection.setReadTimeout((int) request.timeouts().readTimeout().toMillisPart());
 	    return connection.getInputStream();
 	} catch (IOException ex) {
 	    String errorMessage = "Forecast cannot be fetched.";

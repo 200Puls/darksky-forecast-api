@@ -36,30 +36,33 @@ import static tk.plogitech.darksky.forecast.util.Assert.notNull;
  */
 public class ForecastRequest {
 
-    private final int timeout = 6000;
+    private final Timeouts timeouts;
     private final URL url;
 
     /**
      * @param url The URL which contains the parameters to request the weather forecast.
+     * @param timeouts The timeouts used for the request.
      */
-    ForecastRequest(URL url) {
+    ForecastRequest(URL url, Timeouts timeouts) {
 	notNull("URL cannot be null.", url);
+	notNull("Timeouts cannot be null.", timeouts);
 
 	this.url = url;
+	this.timeouts = timeouts;
     }
 
     /**
      * @return The URL which contains the parameters to request the weather forecast.
      */
-    public URL getUrl() {
+    public URL url() {
 	return url;
     }
 
     /**
-     * @return The timeout that is used when connecting and reading from the DarkSky API.
+     * @return The timeouts that are used when connecting and reading from the DarkSky API.
      */
-    public int getTimeout() {
-	return timeout;
+    public Timeouts timeouts() {
+	return timeouts;
     }
 
     @Override
@@ -70,7 +73,7 @@ public class ForecastRequest {
     @Override
     public int hashCode() {
 	int hash = 5;
-	hash = 73 * hash + this.timeout;
+	hash = 73 * hash + Objects.hashCode(this.timeouts);
 	hash = 73 * hash + Objects.hashCode(this.url);
 	return hash;
     }
@@ -87,7 +90,7 @@ public class ForecastRequest {
 	    return false;
 	}
 	final ForecastRequest other = (ForecastRequest) obj;
-	if (this.timeout != other.timeout) {
+	if (this.timeouts != other.timeouts()) {
 	    return false;
 	}
 	return Objects.equals(this.url, other.url);
