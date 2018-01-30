@@ -43,7 +43,7 @@ The Maven dependency is:
       <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
      </dependency>
 ```
 
@@ -65,7 +65,7 @@ The Maven dependency for the Jackson library is:
     <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api-jackson</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
     </dependency>
 ```
 
