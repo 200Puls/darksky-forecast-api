@@ -69,7 +69,7 @@ public class Currently extends DataPoint {
 
     @Override
     public int hashCode() {
-	int hash = 3;
+	int hash = super.hashCode();
 	hash = 67 * hash + Objects.hashCode(this.nearestStormBearing);
 	hash = 67 * hash + Objects.hashCode(this.nearestStormDistance);
 	return hash;
