@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"tk.plogitech.darksky.api.jackson"},{"l":"tk.plogitech.darksky.forecast"},{"l":"tk.plogitech.darksky.forecast.model"},{"l":"tk.plogitech.darksky.forecast.util"}]

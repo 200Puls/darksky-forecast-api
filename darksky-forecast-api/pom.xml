@@ -41,6 +41,19 @@
 	<plugins>
 	    <plugin>
 		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+		<version>3.0.1</version>
+		<executions>
+		    <execution>
+			<id>attach-sources</id>
+			<goals>
+			    <goal>jar-no-fork</goal>
+			</goals>
+		    </execution>
+		</executions>
+	    </plugin>
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-compiler-plugin</artifactId>
 		<version>3.7.0</version>
 	    </plugin>
@@ -71,47 +84,11 @@
 	</repository>
     </distributionManagement>
 
-    <build>
-	<plugins>
-	    <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-jar-plugin</artifactId>
-		<version>3.0.2</version>
-		<configuration>
-		    <archive>
-			<index>true</index>
-			<manifest>
-			    <addClasspath>true</addClasspath>
-			</manifest>
-			<manifestEntries>
-			    <Automatic-Module-Name>tk.plogitech.darksky</Automatic-Module-Name>
-			</manifestEntries>
-		    </archive>
-		</configuration>
-	    </plugin>
-	</plugins>
-
-    </build>
-
-
     <profiles>
 	<profile>
 	    <id>release</id>
 	    <build>
 		<plugins>
-		    <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-source-plugin</artifactId>
-			<version>3.0.1</version>
-			<executions>
-			    <execution>
-				<id>attach-sources</id>
-				<goals>
-				    <goal>jar-no-fork</goal>
-				</goals>
-			    </execution>
-			</executions>
-		    </plugin>
 		    <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-javadoc-plugin</artifactId>

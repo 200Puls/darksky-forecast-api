@@ -52,6 +52,27 @@
 		    </archive>
 		</configuration>
 	    </plugin>
+	    
+	    
+	    <plugin>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>3.0.0</version>
+		<executions>
+		    <execution>
+			<id>javadoc-jar</id>
+			<phase>package</phase>
+			<goals>
+			    <goal>jar</goal>
+			</goals>
+			<configuration>
+			    <includeDependencySources>true</includeDependencySources>
+			    <dependencySourceIncludes>
+				<dependencySourceInclude>tk.plogitech:*</dependencySourceInclude>
+			    </dependencySourceIncludes>
+			</configuration>
+		    </execution>
+		</executions>
+	    </plugin>
 	</plugins>
 
     </build>
