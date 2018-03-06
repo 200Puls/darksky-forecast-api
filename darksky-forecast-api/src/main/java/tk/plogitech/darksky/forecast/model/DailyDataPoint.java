@@ -379,7 +379,7 @@ public class DailyDataPoint implements Serializable {
     }
 
     /**
-     * @deprecated Deprecated by Darksky. Use {@link #getTemperatureHigh() ()} instead.
+     * @deprecated Deprecated by Darksky. Use {@link #getTemperatureHigh()} instead.
      * @return The maximum temperature during a given date.
      */
     @Deprecated
