@@ -344,7 +344,7 @@ public class DailyDataPoint implements Serializable {
 
     /**
      * @deprecated Deprecated by Darksky. Use {@link #getTemperatureLow()} instead.
-     * @return The minimum value of temperature during a given day.
+     * @return The minimum value of temperature during a given date.
      */
     @Deprecated
     public Double getTemperatureMin() {
@@ -353,7 +353,7 @@ public class DailyDataPoint implements Serializable {
 
     /**
      * @deprecated Deprecated by Darksky. Use {@link #setTemperatureLow(java.lang.Double)} instead.
-     * @param temperatureMin The minimum value of temperature during a given day.
+     * @param temperatureMin The minimum value of temperature during a given date.
      */
     @Deprecated
     public void setTemperatureMin(Double temperatureMin) {
@@ -362,7 +362,7 @@ public class DailyDataPoint implements Serializable {
 
     /**
      * @deprecated Deprecated by Darksky. Use {@link #getTemperatureLowTime()} instead.
-     * @return The UNIX time of when temperatureMin occurs during a given day.
+     * @return The UNIX time of when temperatureMin occurs during a given date.
      */
     @Deprecated
     public Instant getTemperatureMinTime() {
@@ -371,7 +371,7 @@ public class DailyDataPoint implements Serializable {
 
     /**
      * @deprecated Deprecated by Darksky. Use {@link #setTemperatureLowTime(java.time.Instant)} instead.
-     * @param temperatureMinTime The UNIX time of when temperatureMin occurs during a given day.
+     * @param temperatureMinTime The UNIX time of when temperatureMin occurs during a given date.
      */
     @Deprecated
     public void setTemperatureMinTime(Instant temperatureMinTime) {
