@@ -43,7 +43,17 @@ public class DailyDataPoint implements Serializable {
     private Double precipIntensity;
     private Double precipIntensityMax;
     private Double precipProbability;
+    private Instant precipIntensityMaxTime;
+    private Double precipAccumulation;
     private String precipType;
+    private Double temperatureHigh;
+    private Instant temperatureHighTime;
+    private Double temperatureLow;
+    private Instant temperatureLowTime;
+    private Double apparentTemperatureHigh;
+    private Instant apparentTemperatureHighTime;
+    private Double apparentTemperatureLow;
+    private Instant apparentTemperatureLowTime;
     private Double temperatureMin;
     private Instant temperatureMinTime;
     private Double temperatureMax;
@@ -54,11 +64,15 @@ public class DailyDataPoint implements Serializable {
     private Instant apparentTemperatureMaxTime;
     private Double dewPoint;
     private Double humidity;
-    private Double windSpeed;
-    private Integer windBearing;
-    private Double visibility;
-    private Double cloudCover;
     private Double pressure;
+    private Double windSpeed;
+    private Double windGust;
+    private Instant windGustTime;
+    private Integer windBearing;
+    private Double cloudCover;
+    private Integer uvIndex;
+    private Integer uvIndexTime;
+    private Double visibility;
     private Double ozone;
 
     /**
@@ -329,146 +343,389 @@ public class DailyDataPoint implements Serializable {
     }
 
     /**
-     * @return The minimum value of temperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getTemperatureLow()} instead.
+     * @return The minimum value of temperature during a given date.
      */
+    @Deprecated
     public Double getTemperatureMin() {
 	return temperatureMin;
     }
 
     /**
-     * @param temperatureMin The minimum value of temperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setTemperatureLow(java.lang.Double)} instead.
+     * @param temperatureMin The minimum value of temperature during a given date.
      */
+    @Deprecated
     public void setTemperatureMin(Double temperatureMin) {
 	this.temperatureMin = temperatureMin;
     }
 
     /**
-     * @return The UNIX time of when temperatureMin occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getTemperatureLowTime()} instead.
+     * @return The UNIX time of when temperatureMin occurs during a given date.
      */
+    @Deprecated
     public Instant getTemperatureMinTime() {
 	return temperatureMinTime;
     }
 
     /**
-     * @param temperatureMinTime The UNIX time of when temperatureMin occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setTemperatureLowTime(java.time.Instant)} instead.
+     * @param temperatureMinTime The UNIX time of when temperatureMin occurs during a given date.
      */
+    @Deprecated
     public void setTemperatureMinTime(Instant temperatureMinTime) {
 	this.temperatureMinTime = temperatureMinTime;
     }
 
     /**
-     * @return The maximum value of temperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getTemperatureHigh()} instead.
+     * @return The maximum temperature during a given date.
      */
+    @Deprecated
     public Double getTemperatureMax() {
 	return temperatureMax;
     }
 
     /**
-     * @param temperatureMax The maximum value of temperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setTemperatureHigh(java.lang.Double)} instead.
+     * @param temperatureMax The maximum temperature during a given date.
      */
+    @Deprecated
     public void setTemperatureMax(Double temperatureMax) {
 	this.temperatureMax = temperatureMax;
     }
 
     /**
-     * @return The UNIX time of when temperatureMax occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getTemperatureHighTime()} instead.
+     * @return The UNIX time representing when the maximum temperature during a given date occurs.
      */
+    @Deprecated
     public Instant getTemperatureMaxTime() {
 	return temperatureMaxTime;
     }
 
     /**
-     * @param temperatureMaxTime The UNIX time of when temperatureMax occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setTemperatureHighTime(java.time.Instant)} instead.
+     * @param temperatureMaxTime The UNIX time representing when the maximum temperature during a given date occurs.
      */
+    @Deprecated
     public void setTemperatureMaxTime(Instant temperatureMaxTime) {
 	this.temperatureMaxTime = temperatureMaxTime;
     }
 
     /**
-     * @return The minimum value of apparentTemperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getApparentTemperatureLow()} instead.
+     * @return The minimum apparent temperature during a given date.
      */
+    @Deprecated
     public Double getApparentTemperatureMin() {
 	return apparentTemperatureMin;
     }
 
     /**
-     * @param apparentTemperatureMin The minimum value of apparentTemperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setApparentTemperatureLow(java.lang.Double)} instead.
+     * @param apparentTemperatureMin The minimum apparent temperature during a given date.
      */
+    @Deprecated
     public void setApparentTemperatureMin(Double apparentTemperatureMin) {
 	this.apparentTemperatureMin = apparentTemperatureMin;
     }
 
     /**
-     * @return The UNIX time of when apparentTemperatureMin occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getApparentTemperatureLowTime()} instead.
+     * @return The UNIX time representing when the minimum apparent temperature during a given date occurs.
      */
+    @Deprecated
     public Instant getApparentTemperatureMinTime() {
 	return apparentTemperatureMinTime;
     }
 
     /**
-     * @param apparentTemperatureMinTime The UNIX time of when apparentTemperatureMin occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setApparentTemperatureLowTime(java.time.Instant)} instead.
+     * @param apparentTemperatureMinTime The UNIX time representing when the minimum apparent temperature during a given date occurs.
      */
+    @Deprecated
     public void setApparentTemperatureMinTime(Instant apparentTemperatureMinTime) {
 	this.apparentTemperatureMinTime = apparentTemperatureMinTime;
     }
 
     /**
-     * @return The maximum value of apparentTemperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getApparentTemperatureHigh()} instead.
+     * @return The maximum apparent temperature during a given date.
      */
+    @Deprecated
     public Double getApparentTemperatureMax() {
 	return apparentTemperatureMax;
     }
 
     /**
-     * @param apparentTemperatureMax The maximum value of apparentTemperature during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setApparentTemperatureHigh(java.lang.Double)} instead.
+     * @param apparentTemperatureMax The maximum apparent temperature during a given date.
      */
+    @Deprecated
     public void setApparentTemperatureMax(Double apparentTemperatureMax) {
 	this.apparentTemperatureMax = apparentTemperatureMax;
     }
 
     /**
-     * @return The UNIX time of when apparentTemperatureMax occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #getApparentTemperatureHighTime()} instead.
+     * @return The UNIX time representing when the maximum apparent temperature during a given date occurs.
      */
+    @Deprecated
     public Instant getApparentTemperatureMaxTime() {
 	return apparentTemperatureMaxTime;
     }
 
     /**
-     * @param apparentTemperatureMaxTime The UNIX time of when apparentTemperatureMax occurs during a given day.
+     * @deprecated Deprecated by Darksky. Use {@link #setApparentTemperatureHighTime(java.time.Instant)} instead.
+     * @param apparentTemperatureMaxTime The UNIX time representing when the maximum apparent temperature during a given date occurs.
      */
+    @Deprecated
     public void setApparentTemperatureMaxTime(Instant apparentTemperatureMaxTime) {
 	this.apparentTemperatureMaxTime = apparentTemperatureMaxTime;
+    }
+
+    /**
+     * @return The overnight low temperature.
+     */
+    public Double getTemperatureLow() {
+	return temperatureLow;
+    }
+
+    /**
+     * @param temperatureLow The overnight low temperature.
+     */
+    public void setTemperatureLow(Double temperatureLow) {
+	this.temperatureLow = temperatureLow;
+    }
+
+    /**
+     * @return The UNIX time representing when the overnight low temperature occurs.
+     */
+    public Instant getTemperatureLowTime() {
+	return temperatureLowTime;
+    }
+
+    /**
+     * @param temperatureLowTime The UNIX time representing when the overnight low temperature occurs.
+     */
+    public void setTemperatureLowTime(Instant temperatureLowTime) {
+	this.temperatureLowTime = temperatureLowTime;
+    }
+
+    /**
+     * @return The daytime high temperature.
+     */
+    public Double getTemperatureHigh() {
+	return temperatureHigh;
+    }
+
+    /**
+     * @param temperatureHigh The daytime high temperature.
+     */
+    public void setTemperatureHigh(Double temperatureHigh) {
+	this.temperatureHigh = temperatureHigh;
+    }
+
+    /**
+     * @return The UNIX time representing when the daytime high temperature occurs.
+     */
+    public Instant getTemperatureHighTime() {
+	return temperatureHighTime;
+    }
+
+    /**
+     * @param temperatureHighTime The UNIX time representing when the daytime high temperature occurs.
+     */
+    public void setTemperatureHighTime(Instant temperatureHighTime) {
+	this.temperatureHighTime = temperatureHighTime;
+    }
+
+    /**
+     * @return The overnight low apparent temperature.
+     */
+    public Double getApparentTemperatureLow() {
+	return apparentTemperatureLow;
+    }
+
+    /**
+     * @param apparentTemperatureLow The overnight low apparent temperature.
+     */
+    public void setApparentTemperatureLow(Double apparentTemperatureLow) {
+	this.apparentTemperatureLow = apparentTemperatureLow;
+    }
+
+    /**
+     * @return The UNIX time representing when the overnight low apparent temperature occurs.
+     */
+    public Instant getApparentTemperatureLowTime() {
+	return apparentTemperatureLowTime;
+    }
+
+    /**
+     * @param apparentTemperatureLowTime The UNIX time representing when the overnight low apparent temperature occurs.
+     */
+    public void setApparentTemperatureLowTime(Instant apparentTemperatureLowTime) {
+	this.apparentTemperatureLowTime = apparentTemperatureLowTime;
+    }
+
+    /**
+     * @return The daytime high apparent temperature.
+     */
+    public Double getApparentTemperatureHigh() {
+	return apparentTemperatureHigh;
+    }
+
+    /**
+     * @param apparentTemperatureHigh The daytime high apparent temperature.
+     */
+    public void setApparentTemperatureHigh(Double apparentTemperatureHigh) {
+	this.apparentTemperatureHigh = apparentTemperatureHigh;
+    }
+
+    /**
+     * @return The UNIX time representing when the daytime high apparent temperature occurs.
+     */
+    public Instant getApparentTemperatureHighTime() {
+	return apparentTemperatureHighTime;
+    }
+
+    /**
+     * @param apparentTemperatureHighTime The UNIX time representing when the daytime high apparent temperature occurs.
+     */
+    public void setApparentTemperatureHighTime(Instant apparentTemperatureHighTime) {
+	this.apparentTemperatureHighTime = apparentTemperatureHighTime;
+    }
+
+    /**
+     *
+     * @return The UNIX time of when precipIntensityMax occurs during a given day.
+     */
+    public Instant getPrecipIntensityMaxTime() {
+	return precipIntensityMaxTime;
+    }
+
+    /**
+     * @param precipIntensityMaxTime The UNIX time of when precipIntensityMax occurs during a given day.
+     */
+    public void setPrecipIntensityMaxTime(Instant precipIntensityMaxTime) {
+	this.precipIntensityMaxTime = precipIntensityMaxTime;
+    }
+
+    /**
+     * @return The amount of snowfall accumulation expected to occur, in inches. (If no snowfall is expected, this property will not be defined.)
+     */
+    public Double getPrecipAccumulation() {
+	return precipAccumulation;
+    }
+
+    /**
+     * @param precipAccumulation The amount of snowfall accumulation expected to occur, in inches. (If no snowfall is expected, this property will not be defined.)
+     */
+    public void setPrecipAccumulation(Double precipAccumulation) {
+	this.precipAccumulation = precipAccumulation;
+    }
+
+    /**
+     * @return The wind gust speed in miles per hour.
+     */
+    public Double getWindGust() {
+	return windGust;
+    }
+
+    /**
+     * @param windGust The wind gust speed in miles per hour.
+     */
+    public void setWindGust(Double windGust) {
+	this.windGust = windGust;
+    }
+
+    /**
+     * @return The UNIX time of when the windGust occurs during a given day.
+     */
+    public Instant getWindGustTime() {
+	return windGustTime;
+    }
+
+    /**
+     * @param windGustTime The UNIX time of when the windGust occurs during a given day.
+     */
+    public void setWindGustTime(Instant windGustTime) {
+	this.windGustTime = windGustTime;
+    }
+
+    /**
+     * @return The UV index.
+     */
+    public Integer getUvIndex() {
+	return uvIndex;
+    }
+
+    /**
+     * @param uvIndex The UV index.
+     */
+    public void setUvIndex(Integer uvIndex) {
+	this.uvIndex = uvIndex;
+    }
+
+    /**
+     * @return The UNIX time of when the maximum uvIndex occurs during a given day.
+     */
+    public Integer getUvIndexTime() {
+	return uvIndexTime;
+    }
+
+    /**
+     * @param uvIndexTime The UNIX time of when the maximum uvIndex occurs during a given day.
+     */
+    public void setUvIndexTime(Integer uvIndexTime) {
+	this.uvIndexTime = uvIndexTime;
     }
 
     @Override
     public int hashCode() {
 	int hash = 7;
-	hash = 73 * hash + Objects.hashCode(this.time);
-	hash = 73 * hash + Objects.hashCode(this.summary);
-	hash = 73 * hash + Objects.hashCode(this.icon);
-	hash = 73 * hash + Objects.hashCode(this.sunriseTime);
-	hash = 73 * hash + Objects.hashCode(this.sunsetTime);
-	hash = 73 * hash + Objects.hashCode(this.moonPhase);
-	hash = 73 * hash + Objects.hashCode(this.precipIntensity);
-	hash = 73 * hash + Objects.hashCode(this.precipIntensityMax);
-	hash = 73 * hash + Objects.hashCode(this.precipProbability);
-	hash = 73 * hash + Objects.hashCode(this.precipType);
-	hash = 73 * hash + Objects.hashCode(this.temperatureMin);
-	hash = 73 * hash + Objects.hashCode(this.temperatureMinTime);
-	hash = 73 * hash + Objects.hashCode(this.temperatureMax);
-	hash = 73 * hash + Objects.hashCode(this.temperatureMaxTime);
-	hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMin);
-	hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMinTime);
-	hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMax);
-	hash = 73 * hash + Objects.hashCode(this.apparentTemperatureMaxTime);
-	hash = 73 * hash + Objects.hashCode(this.dewPoint);
-	hash = 73 * hash + Objects.hashCode(this.humidity);
-	hash = 73 * hash + Objects.hashCode(this.windSpeed);
-	hash = 73 * hash + Objects.hashCode(this.windBearing);
-	hash = 73 * hash + Objects.hashCode(this.visibility);
-	hash = 73 * hash + Objects.hashCode(this.cloudCover);
-	hash = 73 * hash + Objects.hashCode(this.pressure);
-	hash = 73 * hash + Objects.hashCode(this.ozone);
+	hash = 59 * hash + Objects.hashCode(this.time);
+	hash = 59 * hash + Objects.hashCode(this.summary);
+	hash = 59 * hash + Objects.hashCode(this.icon);
+	hash = 59 * hash + Objects.hashCode(this.sunriseTime);
+	hash = 59 * hash + Objects.hashCode(this.sunsetTime);
+	hash = 59 * hash + Objects.hashCode(this.moonPhase);
+	hash = 59 * hash + Objects.hashCode(this.precipIntensity);
+	hash = 59 * hash + Objects.hashCode(this.precipIntensityMax);
+	hash = 59 * hash + Objects.hashCode(this.precipProbability);
+	hash = 59 * hash + Objects.hashCode(this.precipIntensityMaxTime);
+	hash = 59 * hash + Objects.hashCode(this.precipAccumulation);
+	hash = 59 * hash + Objects.hashCode(this.precipType);
+	hash = 59 * hash + Objects.hashCode(this.temperatureHigh);
+	hash = 59 * hash + Objects.hashCode(this.temperatureHighTime);
+	hash = 59 * hash + Objects.hashCode(this.temperatureLow);
+	hash = 59 * hash + Objects.hashCode(this.temperatureLowTime);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureHigh);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureHighTime);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureLow);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureLowTime);
+	hash = 59 * hash + Objects.hashCode(this.temperatureMin);
+	hash = 59 * hash + Objects.hashCode(this.temperatureMinTime);
+	hash = 59 * hash + Objects.hashCode(this.temperatureMax);
+	hash = 59 * hash + Objects.hashCode(this.temperatureMaxTime);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureMin);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureMinTime);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureMax);
+	hash = 59 * hash + Objects.hashCode(this.apparentTemperatureMaxTime);
+	hash = 59 * hash + Objects.hashCode(this.dewPoint);
+	hash = 59 * hash + Objects.hashCode(this.humidity);
+	hash = 59 * hash + Objects.hashCode(this.pressure);
+	hash = 59 * hash + Objects.hashCode(this.windSpeed);
+	hash = 59 * hash + Objects.hashCode(this.windGust);
+	hash = 59 * hash + Objects.hashCode(this.windGustTime);
+	hash = 59 * hash + Objects.hashCode(this.windBearing);
+	hash = 59 * hash + Objects.hashCode(this.cloudCover);
+	hash = 59 * hash + Objects.hashCode(this.uvIndex);
+	hash = 59 * hash + Objects.hashCode(this.uvIndexTime);
+	hash = 59 * hash + Objects.hashCode(this.visibility);
+	hash = 59 * hash + Objects.hashCode(this.ozone);
 	return hash;
     }
 
@@ -514,6 +771,36 @@ public class DailyDataPoint implements Serializable {
 	if (!Objects.equals(this.precipProbability, other.precipProbability)) {
 	    return false;
 	}
+	if (!Objects.equals(this.precipIntensityMaxTime, other.precipIntensityMaxTime)) {
+	    return false;
+	}
+	if (!Objects.equals(this.precipAccumulation, other.precipAccumulation)) {
+	    return false;
+	}
+	if (!Objects.equals(this.temperatureHigh, other.temperatureHigh)) {
+	    return false;
+	}
+	if (!Objects.equals(this.temperatureHighTime, other.temperatureHighTime)) {
+	    return false;
+	}
+	if (!Objects.equals(this.temperatureLow, other.temperatureLow)) {
+	    return false;
+	}
+	if (!Objects.equals(this.temperatureLowTime, other.temperatureLowTime)) {
+	    return false;
+	}
+	if (!Objects.equals(this.apparentTemperatureHigh, other.apparentTemperatureHigh)) {
+	    return false;
+	}
+	if (!Objects.equals(this.apparentTemperatureHighTime, other.apparentTemperatureHighTime)) {
+	    return false;
+	}
+	if (!Objects.equals(this.apparentTemperatureLow, other.apparentTemperatureLow)) {
+	    return false;
+	}
+	if (!Objects.equals(this.apparentTemperatureLowTime, other.apparentTemperatureLowTime)) {
+	    return false;
+	}
 	if (!Objects.equals(this.temperatureMin, other.temperatureMin)) {
 	    return false;
 	}
@@ -544,21 +831,34 @@ public class DailyDataPoint implements Serializable {
 	if (!Objects.equals(this.humidity, other.humidity)) {
 	    return false;
 	}
+	if (!Objects.equals(this.pressure, other.pressure)) {
+	    return false;
+	}
 	if (!Objects.equals(this.windSpeed, other.windSpeed)) {
+	    return false;
+	}
+	if (!Objects.equals(this.windGust, other.windGust)) {
+	    return false;
+	}
+	if (!Objects.equals(this.windGustTime, other.windGustTime)) {
 	    return false;
 	}
 	if (!Objects.equals(this.windBearing, other.windBearing)) {
 	    return false;
 	}
-	if (!Objects.equals(this.visibility, other.visibility)) {
-	    return false;
-	}
 	if (!Objects.equals(this.cloudCover, other.cloudCover)) {
 	    return false;
 	}
-	if (!Objects.equals(this.pressure, other.pressure)) {
+	if (!Objects.equals(this.uvIndex, other.uvIndex)) {
+	    return false;
+	}
+	if (!Objects.equals(this.uvIndexTime, other.uvIndexTime)) {
+	    return false;
+	}
+	if (!Objects.equals(this.visibility, other.visibility)) {
 	    return false;
 	}
 	return Objects.equals(this.ozone, other.ozone);
     }
+
 }

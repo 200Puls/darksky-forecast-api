@@ -36,7 +36,7 @@ public class Hourly implements Serializable {
 
     private String summary;
     private String icon;
-    private List<DataPoint> data;
+    private List<HourlyDataPoint> data;
 
     /**
      * @return A human-readable summary of this data block.
@@ -69,14 +69,14 @@ public class Hourly implements Serializable {
     /**
      * @return List containing all DataPoints, ordered by time.
      */
-    public List<DataPoint> getData() {
+    public List<HourlyDataPoint> getData() {
 	return data;
     }
 
     /**
      * @param data List containing all DataPoints, ordered by time.
      */
-    public void setData(List<DataPoint> data) {
+    public void setData(List<HourlyDataPoint> data) {
 	this.data = data;
     }
 

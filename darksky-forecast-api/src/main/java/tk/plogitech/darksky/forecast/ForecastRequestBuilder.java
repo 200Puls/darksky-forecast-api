@@ -376,7 +376,9 @@ public class ForecastRequestBuilder {
 	ca,
 	/**
 	 * SI units are as follows: summary: Any summaries containing temperature or snow accumulation units will have their values in degrees Celsius or in centimeters
-	 * (respectively). nearestStormDistance: Kilometers.<br>
+	 * (respectively). <br>
+	 * summary: Any summaries containing temperature or snow accumulation units will have their values in degrees Celsius or in centimeters (respectively).<br>
+	 * nearestStormDistance: Kilometers.<br>
 	 * precipIntensity: Millimeters per hour.<br>
 	 * precipIntensityMax: Millimeters per hour.<br>
 	 * precipAccumulation: Centimeters.<br>
@@ -386,6 +388,7 @@ public class ForecastRequestBuilder {
 	 * apparentTemperature: Degrees Celsius. <br>
 	 * dewPoint: Degrees Celsius. <br>
 	 * windSpeed: Meters per second. <br>
+	 * windGust: Meters per second.
 	 * pressure: Hectopascals.<br>
 	 * visibility: Kilometers.<br>
 	 */
