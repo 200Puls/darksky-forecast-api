@@ -1,0 +1,36 @@
+{
+   "latitude":41.12,
+   "longitude":22.1234,
+   "timezone":"Europe/Athens",
+   "currently":{
+      "time":1531083811,
+      "summary":"Partly Cloudy",
+      "icon":"partly-cloudy-night",
+      "precipIntensity":0,
+      "precipProbability":0,
+      "temperature":21.97,
+      "apparentTemperature":21.97,
+      "dewPoint":12.29,
+      "humidity":0.54,
+      "pressure":1012.43,
+      "windSpeed":2.27,
+      "windGust":4.95,
+      "windBearing":331,
+      "cloudCover":0.53,
+      "uvIndex":0,
+      "visibility":16.09,
+      "ozone":324.33
+   },
+   "flags":{
+      "sources":[
+         "cmc",
+         "gfs",
+         "icon",
+         "isd",
+         "madis"
+      ],
+      "nearest-station":47.563,
+      "units":"si"
+   },
+   "offset":3
+}
