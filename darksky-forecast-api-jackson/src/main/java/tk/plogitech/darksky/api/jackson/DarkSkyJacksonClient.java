@@ -46,8 +46,7 @@ import tk.plogitech.darksky.forecast.model.Forecast;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
 /**
- * Client to fetch weather data from the DarkSky API which uses the Jackson
- * library to parse the JSON response into JavaBean objects.
+ * Client to fetch weather data from the DarkSky API which uses the Jackson library to parse the JSON response into JavaBean objects.
  *
  * @author Puls
  */
@@ -59,8 +58,7 @@ public class DarkSkyJacksonClient extends DarkSkyClient {
     /**
      * Returns the forecast as {@link Forecast} object parsed by Jackson.
      *
-     * @param request The Forecast Request which is executed. Use
-     * {@link ForecastRequestBuilder} to build the request.
+     * @param request The Forecast Request which is executed. Use {@link ForecastRequestBuilder} to build the request.
      * @return The forecast parsed as {@link Forecast}.
      *
      * @throws ForecastException if the forecast cannot be fetched.
