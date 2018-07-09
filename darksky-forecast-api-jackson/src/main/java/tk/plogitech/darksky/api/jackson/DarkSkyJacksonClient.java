@@ -66,43 +66,43 @@ public class DarkSkyJacksonClient extends DarkSkyClient {
      * @throws ForecastException if the forecast cannot be fetched.
      */
     public Forecast forecast(ForecastRequest request) throws ForecastException {
-        notNull("The ForecastRequest cannot be null.", request);
-        logger.log(FINE, "Executing Forecat request: {0}", request);
+	notNull("The ForecastRequest cannot be null.", request);
+	logger.log(FINE, "Executing Forecat request: {0}", request);
 
-        try (InputStream is = executeForecastRequest(request)) {
-            return mapper.readValue(is, Forecast.class);
+	try (InputStream is = executeForecastRequest(request)) {
+	    return mapper.readValue(is, Forecast.class);
 
-        } catch (IOException e) {
-            throw new ForecastException("Forecast cannot be fetched.", e);
-        }
+	} catch (IOException e) {
+	    throw new ForecastException("Forecast cannot be fetched.", e);
+	}
     }
 
     static ObjectMapper objectMapper() {
-        ObjectMapper result = new ObjectMapper();
-        result.registerModule(new JavaTimeModule());
-        result.enable(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES);
-        result.configure(REQUIRE_SETTERS_FOR_GETTERS, false);
-        result.configure(AUTO_DETECT_GETTERS, true);
-        result.configure(INDENT_OUTPUT, true);
-        result.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
-        return result;
+	ObjectMapper result = new ObjectMapper();
+	result.registerModule(new JavaTimeModule());
+	result.enable(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES);
+	result.configure(REQUIRE_SETTERS_FOR_GETTERS, false);
+	result.configure(AUTO_DETECT_GETTERS, true);
+	result.configure(INDENT_OUTPUT, true);
+	result.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
+	return result;
     }
 
     public static void main(String[] args) throws ForecastException {
-        if (args.length != 3) {
-            System.err.println("Please provide yout API-Key and a Longitude / Latitrude combination. Usage as follows: '<your-secret-key> <longitude> <latitude>");
-            System.exit(1);
-        }
-        String apikey = args[0];
-        String latitude = args[1];
-        String longitude = args[2];
+	if (args.length != 3) {
+	    System.err.println("Please provide yout API-Key and a Longitude / Latitrude combination. Usage as follows: '<your-secret-key> <longitude> <latitude>");
+	    System.exit(1);
+	}
+	String apikey = args[0];
+	String latitude = args[1];
+	String longitude = args[2];
 
-        ForecastRequest request = new ForecastRequestBuilder()
-                .key(new APIKey(apikey))
-                .location(new GeoCoordinates(new Longitude(Double.valueOf(latitude)), new Latitude(Double.valueOf(longitude)))).build();
+	ForecastRequest request = new ForecastRequestBuilder()
+		.key(new APIKey(apikey))
+		.location(new GeoCoordinates(new Longitude(Double.valueOf(latitude)), new Latitude(Double.valueOf(longitude)))).build();
 
-        DarkSkyJacksonClient client = new DarkSkyJacksonClient();
-        Forecast forecast = client.forecast(request);
-        System.out.println("The current weather: " + forecast.getCurrently().getSummary());
+	DarkSkyJacksonClient client = new DarkSkyJacksonClient();
+	Forecast forecast = client.forecast(request);
+	System.out.println("The current weather: " + forecast.getCurrently().getSummary());
     }
 }

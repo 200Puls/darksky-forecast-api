@@ -51,36 +51,36 @@ public class SerializationTest {
     @Test
     public void longitude_latitude_integer_can_be_serialized() throws JsonProcessingException, IOException, ForecastException {
 
-        Forecast forecast = DarkSkyJacksonClient.objectMapper().readValue(getClass().getResource("/forecast_ints.json").openStream(), Forecast.class);
+	Forecast forecast = DarkSkyJacksonClient.objectMapper().readValue(getClass().getResource("/forecast_ints.json").openStream(), Forecast.class);
 
-        assertEquals((double) 41.0, (double) forecast.getLatitude().value(), 0);
-        assertEquals((double) 22.0, (double) forecast.getLongitude().value(), 0);
+	assertEquals((double) 41.0, (double) forecast.getLatitude().value(), 0);
+	assertEquals((double) 22.0, (double) forecast.getLongitude().value(), 0);
     }
 
     @Test
     public void longitude_latitude_double_can_be_serialized() throws JsonProcessingException, IOException, ForecastException {
 
-        Forecast forecast = DarkSkyJacksonClient.objectMapper().readValue(getClass().getResource("/forecast.json").openStream(), Forecast.class);
+	Forecast forecast = DarkSkyJacksonClient.objectMapper().readValue(getClass().getResource("/forecast.json").openStream(), Forecast.class);
 
-        assertEquals((double) 41.12, (double) forecast.getLatitude().value(), 0);
-        assertEquals((double) 22.1234, (double) forecast.getLongitude().value(), 0);
+	assertEquals((double) 41.12, (double) forecast.getLatitude().value(), 0);
+	assertEquals((double) 22.1234, (double) forecast.getLongitude().value(), 0);
     }
 
     @Test
     @Ignore
     public void longitude_can_be_serialized() throws JsonProcessingException, IOException, ForecastException {
 
-        ForecastRequest request = new ForecastRequestBuilder().key(new APIKey(""))
-                .location(new GeoCoordinates(new Longitude(22.1234), new Latitude(41.0)))
-                .time(Instant.now())
-                .language(Language.en)
-                .units(Units.si)
-                .exclude(Block.minutely, Block.hourly, Block.daily)
-                .build();
+	ForecastRequest request = new ForecastRequestBuilder().key(new APIKey(""))
+		.location(new GeoCoordinates(new Longitude(22.1234), new Latitude(41.0)))
+		.time(Instant.now())
+		.language(Language.en)
+		.units(Units.si)
+		.exclude(Block.minutely, Block.hourly, Block.daily)
+		.build();
 
-        DarkSkyJacksonClient client = new DarkSkyJacksonClient();
+	DarkSkyJacksonClient client = new DarkSkyJacksonClient();
 
-        Forecast forecast = client.forecast(request);
+	Forecast forecast = client.forecast(request);
 
     }
 

@@ -28,7 +28,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The flags object contains various metadata information related to the request.
+ * The flags object contains various metadata information related to the
+ * request.
  *
  * This properties of this object are optional.
  *
@@ -42,7 +43,8 @@ public class Flags implements Serializable {
     private List<String> sources;
 
     /**
-     * @param units Indicates the units which were used for the data in this request.
+     * @param units Indicates the units which were used for the data in this
+     * request.
      */
     public void setUnits(String units) {
 	this.units = units;
@@ -56,44 +58,53 @@ public class Flags implements Serializable {
     }
 
     /**
-     * @return The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary error (such as a radar station being down for
-     * maintenance) has made the data unavailable.
+     * @return The presence of this property indicates that the Dark Sky data
+     * source supports the given location, but a temporary error (such as a
+     * radar station being down for maintenance) has made the data unavailable.
      */
     public boolean isDarkskyUnavailable() {
 	return darkskyUnavailable;
     }
 
     /**
-     * @param darkskyUnavailable The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary error (such as a radar station
-     * being down for maintenance) has made the data unavailable.
+     * @param darkskyUnavailable The presence of this property indicates that
+     * the Dark Sky data source supports the given location, but a temporary
+     * error (such as a radar station being down for maintenance) has made the
+     * data unavailable.
      */
     public void setDarkskyUnavailable(boolean darkskyUnavailable) {
 	this.darkskyUnavailable = darkskyUnavailable;
     }
 
     /**
-     * @return The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per their license agreement).
+     * @return The presence of this property indicates that data from api.met.no
+     * was utilized in order to facilitate this request (as per their license
+     * agreement).
      */
     public boolean isMetnoLicense() {
 	return metnoLicense;
     }
 
     /**
-     * @param metnoLicense The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per their license agreement).
+     * @param metnoLicense The presence of this property indicates that data
+     * from api.met.no was utilized in order to facilitate this request (as per
+     * their license agreement).
      */
     public void setMetnoLicense(boolean metnoLicense) {
 	this.metnoLicense = metnoLicense;
     }
 
     /**
-     * @return This property contains an array of IDs for each data source utilized in servicing this request.
+     * @return This property contains an array of IDs for each data source
+     * utilized in servicing this request.
      */
     public List<String> getSources() {
 	return sources;
     }
 
     /**
-     * @param sources This property contains an array of IDs for each data source utilized in servicing this request.
+     * @param sources This property contains an array of IDs for each data
+     * source utilized in servicing this request.
      */
     public void setSources(List<String> sources) {
 	this.sources = sources;

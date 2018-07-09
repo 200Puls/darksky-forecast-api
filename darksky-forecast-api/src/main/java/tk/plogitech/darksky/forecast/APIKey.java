@@ -36,7 +36,9 @@ public class APIKey {
     private final String value;
 
     /**
-     * @param value Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)
+     * @param value Your Dark Sky secret key. (Your secret key must be kept
+     * secret; in particular, do not embed it in JavaScript source code that you
+     * transmit to clients.)
      */
     public APIKey(String value) {
 	notNullOrEmpty("The API-Key cannot be null or empty.", value);
@@ -45,7 +47,9 @@ public class APIKey {
     }
 
     /**
-     * @return Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)
+     * @return Your Dark Sky secret key. (Your secret key must be kept secret;
+     * in particular, do not embed it in JavaScript source code that you
+     * transmit to clients.)
      */
     public String value() {
 	return value;

@@ -29,7 +29,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents the severe weather warnings issued for the requested location by a governmental authority (please see our data sources page for a list of sources).
+ * Represents the severe weather warnings issued for the requested location by a
+ * governmental authority (please see our data sources page for a list of
+ * sources).
  *
  * @author Puls
  */
@@ -86,44 +88,50 @@ public class Alert implements Serializable {
     }
 
     /**
-     * @return The UNIX time at which the alert will expire. (Some alerts sources, unfortunately, do not define expiration time, and in these cases this parameter will not be
-     * defined.)
+     * @return The UNIX time at which the alert will expire. (Some alerts
+     * sources, unfortunately, do not define expiration time, and in these cases
+     * this parameter will not be defined.)
      */
     public Instant getExpires() {
 	return expires;
     }
 
     /**
-     * @param expires The UNIX time at which the alert will expire. (Some alerts sources, unfortunately, do not define expiration time, and in these cases this parameter will not
-     * be defined.)
+     * @param expires The UNIX time at which the alert will expire. (Some alerts
+     * sources, unfortunately, do not define expiration time, and in these cases
+     * this parameter will not be defined.)
      */
     public void setExpires(Instant expires) {
 	this.expires = expires;
     }
 
     /**
-     * @return An HTTP(S) URI that one may refer to for detailed information about the alert.
+     * @return An HTTP(S) URI that one may refer to for detailed information
+     * about the alert.
      */
     public String getUri() {
 	return uri;
     }
 
     /**
-     * @param uri An HTTP(S) URI that one may refer to for detailed information about the alert.
+     * @param uri An HTTP(S) URI that one may refer to for detailed information
+     * about the alert.
      */
     public void setUri(String uri) {
 	this.uri = uri;
     }
 
     /**
-     * @return A List of strings representing the names of the regions covered by this weather alert.
+     * @return A List of strings representing the names of the regions covered
+     * by this weather alert.
      */
     public List<String> getRegions() {
 	return regions;
     }
 
     /**
-     * @param regions A List of strings representing the names of the regions covered by this weather alert.
+     * @param regions A List of strings representing the names of the regions
+     * covered by this weather alert.
      */
     public void setRegions(List<String> regions) {
 	this.regions = regions;
@@ -199,7 +207,8 @@ public class Alert implements Serializable {
 	 */
 	watch,
 	/**
-	 * and individual should take immediate action to protect themselves and others from potentially severe weather
+	 * and individual should take immediate action to protect themselves and
+	 * others from potentially severe weather
 	 */
 	warning
     }

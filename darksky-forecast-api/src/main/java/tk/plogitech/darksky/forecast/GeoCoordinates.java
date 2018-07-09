@@ -39,8 +39,10 @@ public class GeoCoordinates {
     private final Latitude latitude;
 
     /**
-     * @param longitude The Longitude of the place represented by this GeoCoordinate.
-     * @param latitude The Latitude of the place represented by this GeoCoordinate.
+     * @param longitude The Longitude of the place represented by this
+     * GeoCoordinate.
+     * @param latitude The Latitude of the place represented by this
+     * GeoCoordinate.
      */
     public GeoCoordinates(Longitude longitude, Latitude latitude) {
 	notNull("The Latitude cannot be null.", latitude);

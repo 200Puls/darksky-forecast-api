@@ -28,7 +28,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A data block containing the weather conditions minute-by-minute for the next hour.
+ * A data block containing the weather conditions minute-by-minute for the next
+ * hour.
  *
  * @author Puls
  */
@@ -53,14 +54,16 @@ public class Minutely implements Serializable {
     }
 
     /**
-     * @return A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data points.)
+     * @return A machine-readable text summary of this data block. (May take on
+     * the same values as the iconproperty of data points.)
      */
     public String getIcon() {
 	return icon;
     }
 
     /**
-     * @param icon A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data points.)
+     * @param icon A machine-readable text summary of this data block. (May take
+     * on the same values as the iconproperty of data points.)
      */
     public void setIcon(String icon) {
 	this.icon = icon;

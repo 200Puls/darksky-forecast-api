@@ -35,14 +35,17 @@ public class HourlyDataPoint extends DataPoint {
     private Double precipAccumulation;
 
     /**
-     * @return The amount of snowfall accumulation expected to occur, in inches. (If no snowfall is expected, this property will not be defined.)
+     * @return The amount of snowfall accumulation expected to occur, in inches.
+     * (If no snowfall is expected, this property will not be defined.)
      */
     public Double getPrecipAccumulation() {
 	return precipAccumulation;
     }
 
     /**
-     * @param precipAccumulation The amount of snowfall accumulation expected to occur, in inches. (If no snowfall is expected, this property will not be defined.)
+     * @param precipAccumulation The amount of snowfall accumulation expected to
+     * occur, in inches. (If no snowfall is expected, this property will not be
+     * defined.)
      */
     public void setPrecipAccumulation(Double precipAccumulation) {
 	this.precipAccumulation = precipAccumulation;

@@ -53,7 +53,9 @@ public class ForecastRequestBuilder {
     private Timeouts timeouts = DEFAULT_TIMEOUTS;
 
     /**
-     * @param apiKey Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you transmit to clients.)
+     * @param apiKey Your Dark Sky secret key. (Your secret key must be kept
+     * secret; in particular, do not embed it in JavaScript source code that you
+     * transmit to clients.)
      * @return This for fluent API.
      */
     public ForecastRequestBuilder key(APIKey apiKey) {
@@ -64,7 +66,8 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param geoCoordinates The Geo coordinates of a location for which the weather forecast is requested.
+     * @param geoCoordinates The Geo coordinates of a location for which the
+     * weather forecast is requested.
      * @return This for fluent API.
      */
     public ForecastRequestBuilder location(GeoCoordinates geoCoordinates) {
@@ -75,7 +78,8 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param url Override the default DarksSky API Url. The URL must contain the following patterns for the key and gelocation:<br>
+     * @param url Override the default DarksSky API Url. The URL must contain
+     * the following patterns for the key and gelocation:<br>
      *
      * ##key## ##latitude## ##longitude##
      *
@@ -89,8 +93,9 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param language The summary properties are returned in the desired language. (Note that units in the summary will be set according to the units parameter, so be sure to set
-     * both parameters appropriately.)
+     * @param language The summary properties are returned in the desired
+     * language. (Note that units in the summary will be set according to the
+     * units parameter, so be sure to set both parameters appropriately.)
      * @return This for fluent API.
      */
     public ForecastRequestBuilder language(Language language) {
@@ -101,7 +106,9 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * When set, return hour-by-hour data for the next 168 hours, instead of the next 48. When using this option, we strongly recommend enabling HTTP compression.
+     * When set, return hour-by-hour data for the next 168 hours, instead of the
+     * next 48. When using this option, we strongly recommend enabling HTTP
+     * compression.
      *
      * @return This for fluent API.
      */
@@ -111,7 +118,9 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param block The Blocks which shall be excluded from the response to save data / latency. This method can be called multiple times and the exclusion will add up.
+     * @param block The Blocks which shall be excluded from the response to save
+     * data / latency. This method can be called multiple times and the
+     * exclusion will add up.
      * @return This for fluent API.
      */
     public ForecastRequestBuilder exclude(Block... block) {
@@ -142,7 +151,8 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @param timeouts Override the default timeouts (6 seconds) for connection to the API and reading from the API.
+     * @param timeouts Override the default timeouts (6 seconds) for connection
+     * to the API and reading from the API.
      * @return This for fluent API.
      */
     public ForecastRequestBuilder timeouts(Timeouts timeouts) {
@@ -191,7 +201,8 @@ public class ForecastRequestBuilder {
     }
 
     /**
-     * @return The RequestParamters as String formatted so that they can be added to the vase forecast url.
+     * @return The RequestParamters as String formatted so that they can be
+     * added to the vase forecast url.
      */
     private String requuestParamtersAsString() {
 	StringBuilder paramBuilder = new StringBuilder("?");
@@ -375,9 +386,12 @@ public class ForecastRequestBuilder {
 	 */
 	ca,
 	/**
-	 * SI units are as follows: summary: Any summaries containing temperature or snow accumulation units will have their values in degrees Celsius or in centimeters
-	 * (respectively). <br>
-	 * summary: Any summaries containing temperature or snow accumulation units will have their values in degrees Celsius or in centimeters (respectively).<br>
+	 * SI units are as follows: summary: Any summaries containing
+	 * temperature or snow accumulation units will have their values in
+	 * degrees Celsius or in centimeters (respectively). <br>
+	 * summary: Any summaries containing temperature or snow accumulation
+	 * units will have their values in degrees Celsius or in centimeters
+	 * (respectively).<br>
 	 * nearestStormDistance: Kilometers.<br>
 	 * precipIntensity: Millimeters per hour.<br>
 	 * precipIntensityMax: Millimeters per hour.<br>
@@ -388,13 +402,13 @@ public class ForecastRequestBuilder {
 	 * apparentTemperature: Degrees Celsius. <br>
 	 * dewPoint: Degrees Celsius. <br>
 	 * windSpeed: Meters per second. <br>
-	 * windGust: Meters per second.
-	 * pressure: Hectopascals.<br>
+	 * windGust: Meters per second. pressure: Hectopascals.<br>
 	 * visibility: Kilometers.<br>
 	 */
 	si,
 	/**
-	 * same as si, except that nearestStormDistance and visibility are in miles and windSpeed is in miles per hour
+	 * same as si, except that nearestStormDistance and visibility are in
+	 * miles and windSpeed is in miles per hour
 	 */
 	uk2,
 	/**

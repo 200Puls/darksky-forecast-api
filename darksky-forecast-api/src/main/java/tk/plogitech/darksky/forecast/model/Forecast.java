@@ -30,16 +30,22 @@ import java.util.Objects;
 /**
  * Represents the response to a DarkSky forecast request.
  *
- * A Forecast object contains multiple data point for weather conditions (currently, hourly, daily, minutely).<br><br>
+ * A Forecast object contains multiple data point for weather conditions
+ * (currently, hourly, daily, minutely).<br><br>
  *
  * For details see: https://darksky.net/dev/docs/response<br><br>
  *
- * A Forecast for a Time Machine request (historical data) is identical in structure to a Forecast Request, except:<br><br>
+ * A Forecast for a Time Machine request (historical data) is identical in
+ * structure to a Forecast Request, except:<br><br>
  *
- * The currently data point will refer to the time provided, rather than the current time. The minutely data block will be omitted, unless you are requesting a time within an hour
- * of the present.<br>
- * The hourly data block will contain data points starting at midnight (local time) of the day requested, and continuing until midnight (local time) of the following day. <br>
- * The daily data block will contain a single data point referring to the requested date.<br>
+ * The currently data point will refer to the time provided, rather than the
+ * current time. The minutely data block will be omitted, unless you are
+ * requesting a time within an hour of the present.<br>
+ * The hourly data block will contain data points starting at midnight (local
+ * time) of the day requested, and continuing until midnight (local time) of the
+ * following day. <br>
+ * The daily data block will contain a single data point referring to the
+ * requested date.<br>
  * The alerts data block will be omitted.
  *
  * @author Puls
@@ -85,36 +91,41 @@ public class Forecast implements Serializable {
     }
 
     /**
-     * @return An alerts List, which, if present, contains any severe weather alerts pertinent to the requested location.
+     * @return An alerts List, which, if present, contains any severe weather
+     * alerts pertinent to the requested location.
      */
     public List<Alert> getAlerts() {
 	return alerts;
     }
 
     /**
-     * @param alerts An alerts List, which, if present, contains any severe weather alerts pertinent to the requested location.
+     * @param alerts An alerts List, which, if present, contains any severe
+     * weather alerts pertinent to the requested location.
      */
     public void setAlerts(List<Alert> alerts) {
 	this.alerts = alerts;
     }
 
     /**
-     * @param flags Optional flags object containing miscellaneous metadata about the request.
+     * @param flags Optional flags object containing miscellaneous metadata
+     * about the request.
      */
     public void setFlags(Flags flags) {
 	this.flags = flags;
     }
 
     /**
-     * @return Optional flags object containing miscellaneous metadata about the request.
+     * @return Optional flags object containing miscellaneous metadata about the
+     * request.
      */
     public Flags getFlags() {
 	return flags;
     }
 
     /**
-     * @param timezone The IANA timezone name for the requested location. This is used for text summaries and for determining when hourly and daily data block objects begin. (e.g.
-     * America/New_York).
+     * @param timezone The IANA timezone name for the requested location. This
+     * is used for text summaries and for determining when hourly and daily data
+     * block objects begin. (e.g. America/New_York).
      *
      */
     public void setTimezone(String timezone) {
@@ -122,64 +133,73 @@ public class Forecast implements Serializable {
     }
 
     /**
-     * @return The IANA timezone name for the requested location. This is used for text summaries and for determining when hourly and daily data block objects begin. (e.g.
-     * America/New_York).
+     * @return The IANA timezone name for the requested location. This is used
+     * for text summaries and for determining when hourly and daily data block
+     * objects begin. (e.g. America/New_York).
      */
     public String getTimezone() {
 	return timezone;
     }
 
     /**
-     * @param currently A data point containing the current weather conditions at the requested location.
+     * @param currently A data point containing the current weather conditions
+     * at the requested location.
      */
     public void setCurrently(Currently currently) {
 	this.currently = currently;
     }
 
     /**
-     * @return A data point containing the current weather conditions at the requested location.
+     * @return A data point containing the current weather conditions at the
+     * requested location.
      */
     public Currently getCurrently() {
 	return currently;
     }
 
     /**
-     * @return A data block containing the weather conditions day-by-day for the next week.
+     * @return A data block containing the weather conditions day-by-day for the
+     * next week.
      */
     public Daily getDaily() {
 	return daily;
     }
 
     /**
-     * @param daily A data block containing the weather conditions day-by-day for the next week.
+     * @param daily A data block containing the weather conditions day-by-day
+     * for the next week.
      */
     public void setDaily(Daily daily) {
 	this.daily = daily;
     }
 
     /**
-     * @return A data block containing the weather conditions hour-by-hour for the next two days.
+     * @return A data block containing the weather conditions hour-by-hour for
+     * the next two days.
      */
     public Hourly getHourly() {
 	return hourly;
     }
 
     /**
-     * @param hourly A data block containing the weather conditions hour-by-hour for the next two days.
+     * @param hourly A data block containing the weather conditions hour-by-hour
+     * for the next two days.
      */
     public void setHourly(Hourly hourly) {
 	this.hourly = hourly;
     }
 
     /**
-     * @return A data block containing the weather conditions minute-by-minute for the next hour.
+     * @return A data block containing the weather conditions minute-by-minute
+     * for the next hour.
      */
     public Minutely getMinutely() {
 	return minutely;
     }
 
     /**
-     * @param minutely A data block containing the weather conditions minute-by-minute for the next hour.
+     * @param minutely A data block containing the weather conditions
+     * minute-by-minute for the next hour.
      */
     public void setMinutely(Minutely minutely) {
 	this.minutely = minutely;
