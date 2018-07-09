@@ -36,9 +36,10 @@ import java.util.Objects;
  *
  * A Forecast for a Time Machine request (historical data) is identical in structure to a Forecast Request, except:<br><br>
  *
- * The currently data point will refer to the time provided, rather than the current time. The minutely data block will be omitted, unless you are requesting a time within an hour
- * of the present.<br>
- * The hourly data block will contain data points starting at midnight (local time) of the day requested, and continuing until midnight (local time) of the following day. <br>
+ * The currently data point will refer to the time provided, rather than the current time. The minutely data block will be omitted, unless you are
+ * requesting a time within an hour of the present.<br>
+ * The hourly data block will contain data points starting at midnight (local time) of the day requested, and continuing until midnight (local time)
+ * of the following day. <br>
  * The daily data block will contain a single data point referring to the requested date.<br>
  * The alerts data block will be omitted.
  *
@@ -113,8 +114,8 @@ public class Forecast implements Serializable {
     }
 
     /**
-     * @param timezone The IANA timezone name for the requested location. This is used for text summaries and for determining when hourly and daily data block objects begin. (e.g.
-     * America/New_York).
+     * @param timezone The IANA timezone name for the requested location. This is used for text summaries and for determining when hourly and daily
+     * data block objects begin. (e.g. America/New_York).
      *
      */
     public void setTimezone(String timezone) {
@@ -122,8 +123,8 @@ public class Forecast implements Serializable {
     }
 
     /**
-     * @return The IANA timezone name for the requested location. This is used for text summaries and for determining when hourly and daily data block objects begin. (e.g.
-     * America/New_York).
+     * @return The IANA timezone name for the requested location. This is used for text summaries and for determining when hourly and daily data block
+     * objects begin. (e.g. America/New_York).
      */
     public String getTimezone() {
 	return timezone;

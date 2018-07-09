@@ -29,7 +29,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents the severe weather warnings issued for the requested location by a governmental authority (please see our data sources page for a list of sources).
+ * Represents the severe weather warnings issued for the requested location by a governmental authority (please see our data sources page for a list
+ * of sources).
  *
  * @author Puls
  */
@@ -86,16 +87,16 @@ public class Alert implements Serializable {
     }
 
     /**
-     * @return The UNIX time at which the alert will expire. (Some alerts sources, unfortunately, do not define expiration time, and in these cases this parameter will not be
-     * defined.)
+     * @return The UNIX time at which the alert will expire. (Some alerts sources, unfortunately, do not define expiration time, and in these cases
+     * this parameter will not be defined.)
      */
     public Instant getExpires() {
 	return expires;
     }
 
     /**
-     * @param expires The UNIX time at which the alert will expire. (Some alerts sources, unfortunately, do not define expiration time, and in these cases this parameter will not
-     * be defined.)
+     * @param expires The UNIX time at which the alert will expire. (Some alerts sources, unfortunately, do not define expiration time, and in these
+     * cases this parameter will not be defined.)
      */
     public void setExpires(Instant expires) {
 	this.expires = expires;

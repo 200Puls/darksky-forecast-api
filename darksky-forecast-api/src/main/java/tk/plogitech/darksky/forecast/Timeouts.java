@@ -39,8 +39,10 @@ public class Timeouts {
 
     /**
      *
-     * @param connectionTimeout The Duration of the timeout when opening the connection. Use Duration.ZERO for no timeout. Or e.g. Duration.ofSeconds(1) for any value.
-     * @param readTimeout The Duration of the timeout when reading the forecast data. Use Duration.ZERO for no timeout. Or e.g. Duration.ofSeconds(1) for any value.
+     * @param connectionTimeout The Duration of the timeout when opening the connection. Use Duration.ZERO for no timeout. Or e.g.
+     * Duration.ofSeconds(1) for any value.
+     * @param readTimeout The Duration of the timeout when reading the forecast data. Use Duration.ZERO for no timeout. Or e.g. Duration.ofSeconds(1)
+     * for any value.
      */
     public Timeouts(Duration connectionTimeout, Duration readTimeout) {
 	notNull("The connectionTimeout cannot be null.", connectionTimeout);

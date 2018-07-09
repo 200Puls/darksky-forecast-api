@@ -42,10 +42,22 @@ public class Longitude implements Serializable {
     public Longitude(Double value) {
 	notNull("The Longitude value cannot be null.", value);
 	if (value < -180 || value > 180) {
-	    throw new IllegalArgumentException("Longitude must be between -180 and 180. Latitude value invalid: " + value);
+	    throw new IllegalArgumentException("Longitude must be between -180 and 180. Longitude value invalid: " + value);
 	}
 
 	this.value = value;
+    }
+
+    /**
+     * @param value The longitude of a location (in decimal degrees). Positive is east, negative is west.
+     */
+    public Longitude(Integer value) {
+	notNull("The Longitude value cannot be null.", value);
+	if (value < -180 || value > 180) {
+	    throw new IllegalArgumentException("Longitude must be between -180 and 180. Longitude value invalid: " + value);
+	}
+
+	this.value = value.doubleValue();
     }
 
     /**

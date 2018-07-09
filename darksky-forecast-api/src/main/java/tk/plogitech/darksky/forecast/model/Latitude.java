@@ -49,6 +49,18 @@ public class Latitude implements Serializable {
     }
 
     /**
+     * @param value The latitude of a location (in decimal degrees). Positive is north, negative is south.
+     */
+    public Latitude(Integer value) {
+	notNull("The Latitude value cannot be null.", value);
+	if (value < -180 || value > 180) {
+	    throw new IllegalArgumentException("Latitude must be between -90 and 90. Latitude value invalid: " + value);
+	}
+
+	this.value = value.doubleValue();
+    }
+
+    /**
      * @return The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Double value() {

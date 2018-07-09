@@ -56,30 +56,32 @@ public class Flags implements Serializable {
     }
 
     /**
-     * @return The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary error (such as a radar station being down for
-     * maintenance) has made the data unavailable.
+     * @return The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary error (such as a
+     * radar station being down for maintenance) has made the data unavailable.
      */
     public boolean isDarkskyUnavailable() {
 	return darkskyUnavailable;
     }
 
     /**
-     * @param darkskyUnavailable The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary error (such as a radar station
-     * being down for maintenance) has made the data unavailable.
+     * @param darkskyUnavailable The presence of this property indicates that the Dark Sky data source supports the given location, but a temporary
+     * error (such as a radar station being down for maintenance) has made the data unavailable.
      */
     public void setDarkskyUnavailable(boolean darkskyUnavailable) {
 	this.darkskyUnavailable = darkskyUnavailable;
     }
 
     /**
-     * @return The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per their license agreement).
+     * @return The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per their
+     * license agreement).
      */
     public boolean isMetnoLicense() {
 	return metnoLicense;
     }
 
     /**
-     * @param metnoLicense The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per their license agreement).
+     * @param metnoLicense The presence of this property indicates that data from api.met.no was utilized in order to facilitate this request (as per
+     * their license agreement).
      */
     public void setMetnoLicense(boolean metnoLicense) {
 	this.metnoLicense = metnoLicense;

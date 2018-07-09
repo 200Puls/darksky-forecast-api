@@ -59,7 +59,8 @@ public final class IOUtil {
      *
      * @param is The InputStream from which is read.
      * @param length The max number of bytes read. Use -1 to read everything.
-     * @param readAll Flag to signal that all bytes need to be read. An exception will be thrown if less bytes than the given length value is read (if length is not -1).
+     * @param readAll Flag to signal that all bytes need to be read. An exception will be thrown if less bytes than the given length value is read (if
+     * length is not -1).
      */
     private static byte[] readFully(InputStream is, int length, boolean readAll) throws IOException {
 	byte[] output = {};

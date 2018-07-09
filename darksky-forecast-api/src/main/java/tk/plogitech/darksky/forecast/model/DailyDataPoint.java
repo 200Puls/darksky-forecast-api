@@ -76,66 +76,67 @@ public class DailyDataPoint implements Serializable {
     private Double ozone;
 
     /**
-     * @return The UNIX time at which this data point begins. minutely data point are always aligned to the top of the minute, hourly data point objects to the top of the hour, and
-     * daily data point objects to midnight of the day, all according to the local time zone.
+     * @return The UNIX time at which this data point begins. minutely data point are always aligned to the top of the minute, hourly data point
+     * objects to the top of the hour, and daily data point objects to midnight of the day, all according to the local time zone.
      */
     public Instant getTime() {
 	return time;
     }
 
     /**
-     * @param time The UNIX time at which this data point begins. minutely data point are always aligned to the top of the minute, hourly data point objects to the top of the hour,
-     * and daily data point objects to midnight of the day, all according to the local time zone.
+     * @param time The UNIX time at which this data point begins. minutely data point are always aligned to the top of the minute, hourly data point
+     * objects to the top of the hour, and daily data point objects to midnight of the day, all according to the local time zone.
      */
     public void setTime(Instant time) {
 	this.time = time;
     }
 
     /**
-     * @return A human-readable text summary of this data point. (This property has millions of possible values, so don’t use it for automated purposes: use the icon property,
-     * instead!)
+     * @return A human-readable text summary of this data point. (This property has millions of possible values, so don’t use it for automated
+     * purposes: use the icon property, instead!)
      */
     public String getSummary() {
 	return summary;
     }
 
     /**
-     * @param summary A human-readable text summary of this data point. (This property has millions of possible values, so don’t use it for automated purposes: use the icon
-     * property, instead!)
+     * @param summary A human-readable text summary of this data point. (This property has millions of possible values, so don’t use it for automated
+     * purposes: use the icon property, instead!)
      */
     public void setSummary(String summary) {
 	this.summary = summary;
     }
 
     /**
-     * @return A machine-readable text summary of this data point, suitable for selecting an icon for display. If defined, this property will have one of the following values:
-     * clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night. (Developers should ensure that a sensible default is defined, as
-     * additional values, such as hail, thunderstorm, or tornado, may be defined in the future.)
+     * @return A machine-readable text summary of this data point, suitable for selecting an icon for display. If defined, this property will have one
+     * of the following values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night. (Developers
+     * should ensure that a sensible default is defined, as additional values, such as hail, thunderstorm, or tornado, may be defined in the future.)
      */
     public String getIcon() {
 	return icon;
     }
 
     /**
-     * @param icon A machine-readable text summary of this data point, suitable for selecting an icon for display. If defined, this property will have one of the following values:
-     * clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night. (Developers should ensure that a sensible default is defined, as
-     * additional values, such as hail, thunderstorm, or tornado, may be defined in the future.)
+     * @param icon A machine-readable text summary of this data point, suitable for selecting an icon for display. If defined, this property will have
+     * one of the following values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night.
+     * (Developers should ensure that a sensible default is defined, as additional values, such as hail, thunderstorm, or tornado, may be defined in
+     * the future.)
      */
     public void setIcon(String icon) {
 	this.icon = icon;
     }
 
     /**
-     * @return The intensity (in inches of liquid water per hour) of precipitation occurring at the given time. This value is conditional on probability (that is, assuming any
-     * precipitation occurs at all) for minutely data points, and unconditional otherwise.
+     * @return The intensity (in inches of liquid water per hour) of precipitation occurring at the given time. This value is conditional on
+     * probability (that is, assuming any precipitation occurs at all) for minutely data points, and unconditional otherwise.
      */
     public Double getPrecipIntensity() {
 	return precipIntensity;
     }
 
     /**
-     * @param precipIntensity The intensity (in inches of liquid water per hour) of precipitation occurring at the given time. This value is conditional on probability (that is,
-     * assuming any precipitation occurs at all) for minutely data points, and unconditional otherwise.
+     * @param precipIntensity The intensity (in inches of liquid water per hour) of precipitation occurring at the given time. This value is
+     * conditional on probability (that is, assuming any precipitation occurs at all) for minutely data points, and unconditional otherwise.
      */
     public void setPrecipIntensity(Double precipIntensity) {
 	this.precipIntensity = precipIntensity;
@@ -198,15 +199,16 @@ public class DailyDataPoint implements Serializable {
     }
 
     /**
-     * @return The direction that the wind is coming from in degrees, with true north at 0° and progressing clockwise. (If windSpeed is zero, then this value will not be defined.)
+     * @return The direction that the wind is coming from in degrees, with true north at 0° and progressing clockwise. (If windSpeed is zero, then
+     * this value will not be defined.)
      */
     public Integer getWindBearing() {
 	return windBearing;
     }
 
     /**
-     * @param windBearing The direction that the wind is coming from in degrees, with true north at 0° and progressing clockwise. (If windSpeed is zero, then this value will not be
-     * defined.)
+     * @param windBearing The direction that the wind is coming from in degrees, with true north at 0° and progressing clockwise. (If windSpeed is
+     * zero, then this value will not be defined.)
      */
     public void setWindBearing(Integer windBearing) {
 	this.windBearing = windBearing;
@@ -255,16 +257,18 @@ public class DailyDataPoint implements Serializable {
     }
 
     /**
-     * @return The type of precipitation occurring at the given time. If defined, this property will have one of the following values: "rain", "snow", or "sleet" (which refers to
-     * each of freezing rain, ice pellets, and “wintery mix”). (If precipIntensity is zero, then this property will not be defined.)
+     * @return The type of precipitation occurring at the given time. If defined, this property will have one of the following values: "rain", "snow",
+     * or "sleet" (which refers to each of freezing rain, ice pellets, and “wintery mix”). (If precipIntensity is zero, then this property will not be
+     * defined.)
      */
     public String getPrecipType() {
 	return precipType;
     }
 
     /**
-     * @param precipType The type of precipitation occurring at the given time. If defined, this property will have one of the following values: "rain", "snow", or "sleet" (which
-     * refers to each of freezing rain, ice pellets, and “wintery mix”). (If precipIntensity is zero, then this property will not be defined.)
+     * @param precipType The type of precipitation occurring at the given time. If defined, this property will have one of the following values:
+     * "rain", "snow", or "sleet" (which refers to each of freezing rain, ice pellets, and “wintery mix”). (If precipIntensity is zero, then this
+     * property will not be defined.)
      */
     public void setPrecipType(String precipType) {
 	this.precipType = precipType;
@@ -313,16 +317,18 @@ public class DailyDataPoint implements Serializable {
     }
 
     /**
-     * @return The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon, and 0.75
-     * to a last quarter moon. (The ranges in between these represent waxing crescent, waxing gibbous, waning gibbous, and waning crescent moons, respectively.)
+     * @return The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon,
+     * 0.5 to a full moon, and 0.75 to a last quarter moon. (The ranges in between these represent waxing crescent, waxing gibbous, waning gibbous,
+     * and waning crescent moons, respectively.)
      */
     public Double getMoonPhase() {
 	return moonPhase;
     }
 
     /**
-     * @param moonPhase The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon,
-     * and 0.75 to a last quarter moon. (The ranges in between these represent waxing crescent, waxing gibbous, waning gibbous, and waning crescent moons, respectively.)
+     * @param moonPhase The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first
+     * quarter moon, 0.5 to a full moon, and 0.75 to a last quarter moon. (The ranges in between these represent waxing crescent, waxing gibbous,
+     * waning gibbous, and waning crescent moons, respectively.)
      */
     public void setMoonPhase(Double moonPhase) {
 	this.moonPhase = moonPhase;
@@ -621,7 +627,8 @@ public class DailyDataPoint implements Serializable {
     }
 
     /**
-     * @param precipAccumulation The amount of snowfall accumulation expected to occur, in inches. (If no snowfall is expected, this property will not be defined.)
+     * @param precipAccumulation The amount of snowfall accumulation expected to occur, in inches. (If no snowfall is expected, this property will not
+     * be defined.)
      */
     public void setPrecipAccumulation(Double precipAccumulation) {
 	this.precipAccumulation = precipAccumulation;
