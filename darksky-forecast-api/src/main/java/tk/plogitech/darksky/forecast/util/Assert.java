@@ -26,8 +26,7 @@ package tk.plogitech.darksky.forecast.util;
 /**
  * Utility for validation of parameters.
  *
- * All methods throw an {@link IllegalArgumentException} if the tested assertion
- * fails.
+ * All methods throw an {@link IllegalArgumentException} if the tested assertion fails.
  *
  * @author Puls
  */

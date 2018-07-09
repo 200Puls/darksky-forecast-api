@@ -36,8 +36,7 @@ public class APIKey {
     private final String value;
 
     /**
-     * @param value Your Dark Sky secret key. (Your secret key must be kept
-     * secret; in particular, do not embed it in JavaScript source code that you
+     * @param value Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you
      * transmit to clients.)
      */
     public APIKey(String value) {
@@ -47,8 +46,7 @@ public class APIKey {
     }
 
     /**
-     * @return Your Dark Sky secret key. (Your secret key must be kept secret;
-     * in particular, do not embed it in JavaScript source code that you
+     * @return Your Dark Sky secret key. (Your secret key must be kept secret; in particular, do not embed it in JavaScript source code that you
      * transmit to clients.)
      */
     public String value() {

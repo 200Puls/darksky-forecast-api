@@ -45,8 +45,7 @@ public class DarkSkyClient {
     /**
      * Returns the forecast response as String.
      *
-     * @param request The Forecast Request which is executed. Use
-     * {@link ForecastRequestBuilder} to build the request.
+     * @param request The Forecast Request which is executed. Use {@link ForecastRequestBuilder} to build the request.
      * @return The forecast unparsed as byte encoded Json.
      *
      * @throws ForecastException if the forecast cannot be fetched.
@@ -61,8 +60,7 @@ public class DarkSkyClient {
     /**
      * Returns the forecast response as String.
      *
-     * @param request The Forecast Request which is executed. Use
-     * {@link ForecastRequestBuilder} to build the request.
+     * @param request The Forecast Request which is executed. Use {@link ForecastRequestBuilder} to build the request.
      * @return The forecast unparsed as byte encoded Json.
      *
      * @throws ForecastException if the forecast cannot be fetched.
@@ -76,8 +74,7 @@ public class DarkSkyClient {
     /**
      * Returns the forecast response as bytes.
      *
-     * @param request The Forecast Request which is executed. Use
-     * {@link ForecastRequestBuilder} to build the request.
+     * @param request The Forecast Request which is executed. Use {@link ForecastRequestBuilder} to build the request.
      * @return The forecast unparsed as byte encoded Json.
      *
      * @throws ForecastException if the forecast cannot be fetched.

@@ -37,8 +37,7 @@ public class Longitude implements Serializable {
     private final Double value;
 
     /**
-     * @param value The longitude of a location (in decimal degrees). Positive
-     * is east, negative is west.
+     * @param value The longitude of a location (in decimal degrees). Positive is east, negative is west.
      */
     public Longitude(Double value) {
 	notNull("The Longitude value cannot be null.", value);
@@ -50,8 +49,7 @@ public class Longitude implements Serializable {
     }
 
     /**
-     * @param value The longitude of a location (in decimal degrees). Positive
-     * is east, negative is west.
+     * @param value The longitude of a location (in decimal degrees). Positive is east, negative is west.
      */
     public Longitude(Integer value) {
 	notNull("The Longitude value cannot be null.", value);
@@ -63,8 +61,7 @@ public class Longitude implements Serializable {
     }
 
     /**
-     * @return The longitude of a location (in decimal degrees). Positive is
-     * east, negative is west.
+     * @return The longitude of a location (in decimal degrees). Positive is east, negative is west.
      */
     public Double value() {
 	return value;

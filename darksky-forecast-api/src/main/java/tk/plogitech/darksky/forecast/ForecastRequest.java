@@ -40,8 +40,7 @@ public class ForecastRequest {
     private final URL url;
 
     /**
-     * @param url The URL which contains the parameters to request the weather
-     * forecast.
+     * @param url The URL which contains the parameters to request the weather forecast.
      * @param timeouts The timeouts used for the request.
      */
     ForecastRequest(URL url, Timeouts timeouts) {
@@ -53,16 +52,14 @@ public class ForecastRequest {
     }
 
     /**
-     * @return The URL which contains the parameters to request the weather
-     * forecast.
+     * @return The URL which contains the parameters to request the weather forecast.
      */
     public URL url() {
 	return url;
     }
 
     /**
-     * @return The timeouts that are used when connecting and reading from the
-     * DarkSky API.
+     * @return The timeouts that are used when connecting and reading from the DarkSky API.
      */
     public Timeouts timeouts() {
 	return timeouts;

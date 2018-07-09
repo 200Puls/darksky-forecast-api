@@ -37,8 +37,7 @@ public class Latitude implements Serializable {
     private final Double value;
 
     /**
-     * @param value The latitude of a location (in decimal degrees). Positive is
-     * north, negative is south.
+     * @param value The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Latitude(Double value) {
 	notNull("The Latitude value cannot be null.", value);
@@ -50,8 +49,7 @@ public class Latitude implements Serializable {
     }
 
     /**
-     * @param value The latitude of a location (in decimal degrees). Positive is
-     * north, negative is south.
+     * @param value The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Latitude(Integer value) {
 	notNull("The Latitude value cannot be null.", value);
@@ -63,8 +61,7 @@ public class Latitude implements Serializable {
     }
 
     /**
-     * @return The latitude of a location (in decimal degrees). Positive is
-     * north, negative is south.
+     * @return The latitude of a location (in decimal degrees). Positive is north, negative is south.
      */
     public Double value() {
 	return value;
