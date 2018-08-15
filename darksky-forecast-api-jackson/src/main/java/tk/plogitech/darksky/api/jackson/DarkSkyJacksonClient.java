@@ -97,7 +97,7 @@ public class DarkSkyJacksonClient extends DarkSkyClient {
 
 	ForecastRequest request = new ForecastRequestBuilder()
 		.key(new APIKey(apikey))
-		.location(new GeoCoordinates(new Longitude(Double.valueOf(latitude)), new Latitude(Double.valueOf(longitude)))).build();
+		.location(new GeoCoordinates(new Longitude(Double.valueOf(longitude)), new Latitude(Double.valueOf(latitude)))).build();
 
 	DarkSkyJacksonClient client = new DarkSkyJacksonClient();
 	Forecast forecast = client.forecast(request);
