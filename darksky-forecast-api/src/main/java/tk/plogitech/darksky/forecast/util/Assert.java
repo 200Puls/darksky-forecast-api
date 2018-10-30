@@ -33,31 +33,31 @@ package tk.plogitech.darksky.forecast.util;
 public final class Assert {
 
     private Assert() {
-	// prevent construction of Utility class.
+        // prevent construction of Utility class.
     }
 
     public static void notNullOrEmpty(String message, String string) {
-	notNull(message, string);
+        notNull(message, string);
 
-	if (string.isEmpty()) {
-	    throw new IllegalArgumentException(message);
-	}
+        if (string.isEmpty()) {
+            throw new IllegalArgumentException(message);
+        }
     }
 
     public static void notNull(String message, Object... objects) {
-	if (objects == null) {
-	    throw new IllegalArgumentException(message);
-	}
-	for (Object object : objects) {
-	    if (object == null) {
-		throw new IllegalArgumentException(message);
-	    }
-	}
+        if (objects == null) {
+            throw new IllegalArgumentException(message);
+        }
+        for (Object object : objects) {
+            if (object == null) {
+                throw new IllegalArgumentException(message);
+            }
+        }
     }
 
     public static void matches(String message, String string, String pattern) {
-	if (!string.matches(pattern)) {
-	    throw new IllegalArgumentException(message + " Actual String " + string);
-	}
+        if (!string.matches(pattern)) {
+            throw new IllegalArgumentException(message + " Actual String " + string);
+        }
     }
 }
