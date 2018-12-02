@@ -49,6 +49,7 @@ public class DataPoint implements Serializable {
     private Double humidity;
     private Double windSpeed;
     private Integer windBearing;
+    private Double windGust;
     private Double pressure;
     private Double cloudCover;
     private Double ozone;
@@ -219,6 +220,20 @@ public class DataPoint implements Serializable {
      */
     public void setWindBearing(Integer windBearing) {
 	this.windBearing = windBearing;
+    }
+    
+    /**
+     * @return The wind gust speed in miles per hour.
+     */
+    public Double getWindGust() {
+	return windGust;
+    }
+
+    /**
+     * @param windGust The wind gust speed in miles per hour.
+     */
+    public void setWindGust(Double windGust) {
+	this.windGust = windGust;
     }
 
     /**
