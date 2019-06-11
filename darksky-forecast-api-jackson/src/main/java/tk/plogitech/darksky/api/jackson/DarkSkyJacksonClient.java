@@ -23,7 +23,6 @@
  */
 package tk.plogitech.darksky.api.jackson;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonParser;
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 import static com.fasterxml.jackson.databind.MapperFeature.AUTO_DETECT_GETTERS;
