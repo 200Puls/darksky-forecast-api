@@ -71,7 +71,7 @@ public class DailyDataPoint implements Serializable {
     private Integer windBearing;
     private Double cloudCover;
     private Integer uvIndex;
-    private Integer uvIndexTime;
+    private Instant uvIndexTime;
     private Double visibility;
     private Double ozone;
 
@@ -679,14 +679,14 @@ public class DailyDataPoint implements Serializable {
     /**
      * @return The UNIX time of when the maximum uvIndex occurs during a given day.
      */
-    public Integer getUvIndexTime() {
+    public Instant getUvIndexTime() {
 	return uvIndexTime;
     }
 
     /**
      * @param uvIndexTime The UNIX time of when the maximum uvIndex occurs during a given day.
      */
-    public void setUvIndexTime(Integer uvIndexTime) {
+    public void setUvIndexTime(Instant uvIndexTime) {
 	this.uvIndexTime = uvIndexTime;
     }
 
