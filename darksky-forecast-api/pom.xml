@@ -16,6 +16,14 @@
     <description>A java library to access the DarkSky weather forecast API.</description>
     <url>https://www.plogitech.tk</url>
 
+    <dependencies>
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope>test</scope>
+	</dependency>
+    </dependencies>
     <licenses>
 	<license>
 	    <name>MIT License</name>
