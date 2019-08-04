@@ -28,6 +28,7 @@ import tk.plogitech.darksky.forecast.model.Longitude;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
@@ -99,6 +100,7 @@ public class DarkSkyClient {
 	    connection.setDoOutput(false);
 	    connection.setConnectTimeout((int) request.timeouts().connectionTimeout().toMillis());
 	    connection.setReadTimeout((int) request.timeouts().readTimeout().toMillis());
+	    connection.getHeaderFields().put("Accept-Encoding", List.of("gzip"));
 	    return connection.getInputStream();
 	} catch (IOException ex) {
 	    String errorMessage = "Forecast cannot be fetched.";
