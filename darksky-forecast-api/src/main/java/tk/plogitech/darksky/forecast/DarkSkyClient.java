@@ -31,7 +31,6 @@ import java.net.HttpURLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
-import tk.plogitech.darksky.forecast.util.IOUtil;
 
 /**
  * Client to fetch weather data from the DarkSky API.
@@ -84,7 +83,7 @@ public class DarkSkyClient {
 	logger.log(Level.FINE, "Executing Forecat request: {0}", request);
 
 	try (InputStream is = executeForecastRequest(request)) {
-	    return IOUtil.readFully(is);
+	    return is.readAllBytes();
 
 	} catch (IOException e) {
 	    throw new ForecastException("Forecast cannot be fetched.", e);
