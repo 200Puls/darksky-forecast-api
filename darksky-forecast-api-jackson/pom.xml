@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>tk.plogitech</groupId>
     <artifactId>darksky-forecast-api-jackson</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <packaging>jar</packaging>
     <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,7 +20,7 @@
 	<dependency>
 	    <groupId>tk.plogitech</groupId>
 	    <artifactId>darksky-forecast-api</artifactId>
-	    <version>2.0.1</version>
+	    <version>2.0.2</version>
 	</dependency>
 	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
@@ -67,32 +67,10 @@
 			<manifest>
 			    <addClasspath>true</addClasspath>
 			</manifest>
-			<manifestEntries>
-			    <Automatic-Module-Name>tk.plogitech.darksky.jackson</Automatic-Module-Name>
-			</manifestEntries>
 		    </archive>
 		</configuration>
 	    </plugin>
-	  
-	    <plugin>
-		<artifactId>maven-javadoc-plugin</artifactId>
-		<version>3.1.1</version>
-		<executions>
-		    <execution>
-			<id>javadoc-jar</id>
-			<phase>package</phase>
-			<goals>
-			    <goal>jar</goal>
-			</goals>
-			<configuration>
-			    <includeDependencySources>true</includeDependencySources>
-			    <dependencySourceIncludes>
-				<dependencySourceInclude>tk.plogitech:*</dependencySourceInclude>
-			    </dependencySourceIncludes>
-			</configuration>
-		    </execution>
-		</executions>
-	    </plugin>
+	 
 	</plugins>
     </build>
 
@@ -144,6 +122,25 @@
 				<goals>
 				    <goal>jar-no-fork</goal>
 				</goals>
+			    </execution>
+			</executions>
+		    </plugin>
+		    <plugin>
+			<artifactId>maven-javadoc-plugin</artifactId>
+			<version>3.1.1</version>
+			<executions>
+			    <execution>
+				<id>javadoc-jar</id>
+				<phase>package</phase>
+				<goals>
+				    <goal>jar</goal>
+				</goals>
+				<!--<configuration>
+				    <includeDependencySources>true</includeDependencySources>
+				    <dependencySourceIncludes>
+					<dependencySourceInclude>tk.plogitech:*</dependencySourceInclude>
+				    </dependencySourceIncludes>
+				</configuration>-->
 			    </execution>
 			</executions>
 		    </plugin>
