@@ -29,7 +29,7 @@ The API also supports time machine requests and other API parameters:
         .time(Instant.now().minus(5, ChronoUnit.DAYS))
         .language(ForecastRequestBuilder.Language.de)
         .units(ForecastRequestBuilder.Units.us)
-        .exdclude(ForecastRequestBuilder.Block.minutely)
+        .exclude(ForecastRequestBuilder.Block.minutely)
         .extendHourly()
         .location(new GeoCoordinates(new Longitude(13.377704), new Latitude(52.516275))).build();
 
