@@ -37,58 +37,63 @@ public class Longitude implements Serializable {
     private final Double value;
 
     /**
-     * @param value The longitude of a location (in decimal degrees). Positive
-     * is east, negative is west.
+     * @param value The longitude of a location (in decimal degrees). Positive is east, negative is west.
      */
     public Longitude(Double value) {
-        notNull("The Longitude value cannot be null.", value);
-        if (value < -180 || value > 180) {
-            throw new IllegalArgumentException("Longitude must be between -180 and 180. Longitude value invalid: " + value);
-        }
+	notNull("The Longitude value cannot be null.", value);
+	if (value < -180 || value > 180) {
+	    throw new IllegalArgumentException("Longitude must be between -180 and 180. Longitude value invalid: " + value);
+	}
 
-        this.value = value;
+	this.value = value;
     }
 
     /**
-     * @param value The longitude of a location (in decimal degrees). Positive
-     * is east, negative is west.
+     * @param value The longitude of a location (in decimal degrees). Positive is east, negative is west.
      */
     public Longitude(Integer value) {
-        notNull("The Longitude value cannot be null.", value);
-        if (value < -180 || value > 180) {
-            throw new IllegalArgumentException("Longitude must be between -180 and 180. Longitude value invalid: " + value);
-        }
+	notNull("The Longitude value cannot be null.", value);
+	if (value < -180 || value > 180) {
+	    throw new IllegalArgumentException("Longitude must be between -180 and 180. Longitude value invalid: " + value);
+	}
 
-        this.value = value.doubleValue();
+	this.value = value.doubleValue();
     }
 
     /**
-     * @return The longitude of a location (in decimal degrees). Positive is
-     * east, negative is west.
+     * @return The longitude of a location (in decimal degrees). Positive is east, negative is west.
      */
     public Double value() {
-        return value;
+	return value;
+    }
+
+    /**
+     * @return String correctly formatted ("-0.000066" instead of "-6.6E-5").
+     */
+    @Override
+    public String toString() {
+	return String.format("%f", value);
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.value);
-        return hash;
+	int hash = 7;
+	hash = 53 * hash + Objects.hashCode(this.value);
+	return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Longitude other = (Longitude) obj;
-        return Objects.equals(this.value, other.value);
+	if (this == obj) {
+	    return true;
+	}
+	if (obj == null) {
+	    return false;
+	}
+	if (getClass() != obj.getClass()) {
+	    return false;
+	}
+	final Longitude other = (Longitude) obj;
+	return Objects.equals(this.value, other.value);
     }
 }
