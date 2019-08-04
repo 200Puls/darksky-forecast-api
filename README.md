@@ -6,7 +6,7 @@
 * For Jackson users there is **darksky-forecast-api-jackson** to get the Forecast parsed as Java beans. This library includes the base library as dependency.
 * deployed to Maven Central
 * Javadoc available: https://200puls.github.io/darksky-forecast-api/
-* Full Java 9 module support (2.0.0 use 1.3.1 for java 8 sources)
+* Full Java 9 module support (2.0.1 use 1.3.1 for java 8 sources)
 
 Example usage for base library:
 
@@ -43,7 +43,7 @@ The Maven dependency is:
       <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.1</version>
      </dependency>
 ```
 
@@ -65,7 +65,7 @@ The Maven dependency for the Jackson library is:
     <dependency>
             <groupId>tk.plogitech</groupId>
             <artifactId>darksky-forecast-api-jackson</artifactId>
-            <version>2.0.0</version>
+            <version>2.0.1</version>
     </dependency>
 ```
 
