@@ -188,20 +188,20 @@ public class ForecastRequestBuilder {
 		.replaceAll("##latitude##", String.valueOf(geoCoordinates.latitude().toString()))
 		.replaceAll("##longitude##", String.valueOf(geoCoordinates.longitude().toString()))
 		.replaceAll("##time##", unixTimestamp)
-		+ requuestParamtersAsString();
+		+ requestParametersAsString();
 
 	return new URL(forecastUrlString);
     }
 
     /**
-     * @return The RequestParamters as String formatted so that they can be added to the vase forecast url.
+     * @return The Request Parameters as String formatted so that they can be added to the base forecast url.
      */
-    private String requuestParamtersAsString() {
+    private String requestParametersAsString() {
 	StringBuilder paramBuilder = new StringBuilder("?");
 	if (language != null) {
 	    paramBuilder.append(RequestParmaterType.lang.name());
 	    paramBuilder.append("=");
-	    paramBuilder.append(language.name());
+	    paramBuilder.append(language.name().replace("_", "-"));
 	    paramBuilder.append("&");
 	}
 	if (units != null) {
@@ -214,7 +214,7 @@ public class ForecastRequestBuilder {
 	    paramBuilder.append(RequestParmaterType.exclude.name());
 	    paramBuilder.append("=");
 	    StringJoiner joiner = new StringJoiner(",");
-	    exclusion.stream().forEach(s -> joiner.add(s.name()));
+	    exclusion.forEach(s -> joiner.add(s.name()));
 	    paramBuilder.append(joiner.toString());
 	    paramBuilder.append("&");
 	}
@@ -244,6 +244,14 @@ public class ForecastRequestBuilder {
 	 */
 	be,
 	/**
+	 * Bulgarian
+	 */
+	bg,
+	/**
+	 * Bengali
+	 */
+	bn,
+	/**
 	 * Bosnian
 	 */
 	bs,
@@ -255,6 +263,10 @@ public class ForecastRequestBuilder {
 	 * Czech
 	 */
 	cs,
+	/**
+	 * Danish
+	 */
+	da,
 	/**
 	 * German
 	 */
@@ -268,6 +280,10 @@ public class ForecastRequestBuilder {
 	 */
 	en,
 	/**
+	 * Esperanto
+	 */
+	eo,
+	/**
 	 * Spanish
 	 */
 	es,
@@ -276,9 +292,21 @@ public class ForecastRequestBuilder {
 	 */
 	et,
 	/**
+	 * Finnish
+	 */
+	fi,
+	/**
 	 * French
 	 */
 	fr,
+	/**
+	 * Hebrew
+	 */
+	he,
+	/**
+	 * Hindi
+	 */
+	hi,
 	/**
 	 * Croatian
 	 */
@@ -292,17 +320,45 @@ public class ForecastRequestBuilder {
 	 */
 	id,
 	/**
-	 * Italian
-	 */
-	it,
-	/**
 	 * Icelandic
 	 */
 	is,
 	/**
+	 * Italian
+	 */
+	it,
+	/**
+	 * Japanese
+	 */
+	ja,
+	/**
+	 * Georgian
+	 */
+	ka,
+	/**
+	 * Kannada
+	 */
+	kn,
+	/**
+	 * Korean
+	 */
+	ko,
+	/**
 	 * Cornish
 	 */
 	kw,
+	/**
+	 * Latvian
+	 */
+	lv,
+	/**
+	 * Malayam
+	 */
+	ml,
+	/**
+	 * Marathi
+	 */
+	mr,
 	/**
 	 * Norwegian Bokmål
 	 */
@@ -312,13 +368,26 @@ public class ForecastRequestBuilder {
 	 */
 	nl,
 	/**
+	 * Norwegian Bokmål (alias for nb)
+	 */
+	no,
+	/**
+	 * Punjabi
+	 */
+	pa,
+	/**
 	 * Polish
 	 */
 	pl,
 	/**
 	 * Portuguese
 	 */
-	pt, /**
+	pt,
+	/**
+	 * Romanian
+	 */
+	ro,
+	/**
 	 * Russian
 	 */
 	ru,
@@ -339,6 +408,14 @@ public class ForecastRequestBuilder {
 	 */
 	sv,
 	/**
+	 * Tamil
+	 */
+	ta,
+	/**
+	 * Telugu
+	 */
+	te,
+	/**
 	 * Tetum
 	 */
 	tet,
@@ -351,9 +428,21 @@ public class ForecastRequestBuilder {
 	 */
 	uk,
 	/**
+	 * Urdu
+	 */
+	ur,
+	/**
+	 * Igpay Atinlay
+	 */
+	x_pig_latin,
+	/**
 	 * simplified Chinese
 	 */
 	zh,
+	/**
+	 * traditional Chinese
+	 */
+	zh_tw
     }
 
     /**
