@@ -185,8 +185,8 @@ public class ForecastRequestBuilder {
 	}
 
 	forecastUrlString = forecastUrlString.replaceAll("##key##", apiKey.value())
-		.replaceAll("##latitude##", String.valueOf(geoCoordinates.latitude().value()))
-		.replaceAll("##longitude##", String.valueOf(geoCoordinates.longitude().value()))
+		.replaceAll("##latitude##", geoCoordinates.latitude().toString())
+		.replaceAll("##longitude##", geoCoordinates.longitude().toString())
 		.replaceAll("##time##", unixTimestamp)
 		+ requestParametersAsString();
 

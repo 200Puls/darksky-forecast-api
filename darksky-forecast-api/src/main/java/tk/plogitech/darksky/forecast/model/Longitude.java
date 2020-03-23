@@ -24,6 +24,7 @@
 package tk.plogitech.darksky.forecast.model;
 
 import java.io.Serializable;
+import java.util.Locale;
 import java.util.Objects;
 import static tk.plogitech.darksky.forecast.util.Assert.notNull;
 
@@ -72,7 +73,7 @@ public class Longitude implements Serializable {
      */
     @Override
     public String toString() {
-	return String.format("%f", value);
+	return String.format(Locale.ENGLISH, "%f", value);
     }
 
     @Override
